@@ -1,0 +1,3 @@
+let DashAttachData = {
+    token: ""
+}

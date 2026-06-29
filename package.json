@@ -1,0 +1,13 @@
+{
+  "name": "DashAttach",
+  "version": "0.0.1",
+  "description": "Library for interacting with the Dash API.",
+  "main": "index.js",
+  "homepage": "https://github.com/shaman2016scratch/DashAttach",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shaman2016scratch/DashAttach.git"
+  },
+  "author": "polzovatel_8787",
+  "license": "GPL-3.0"
+}
