@@ -50,20 +50,20 @@ const getDashProject = async (project) => {
     return res.project
 }
 
-const getDashUserProjects = async (user) => {
-    const req = await fetch(`https://api.dashblocks.org/users/${user}/projects`)
+const getDashUserProjects = async (user, offset, limit) => {
+    const req = await fetch(`https://api.dashblocks.org/users/${user}/projects?offset=${offset}&limit=${limit}`)
     const res = await req.json()
     return res.projects
 }
 
-const getDashUserFollowers = async (user) => {
-    const req = await fetch(`https://api.dashblocks.org/users/${user}/followers`)
+const getDashUserFollowers = async (user, offset, limit) => {
+    const req = await fetch(`https://api.dashblocks.org/users/${user}/followers?offset=${offset}&limit=${limit}`)
     const res = await req.json()
     return res.followers
 }
 
-const getDashUserFollowing = async (user) => {
-    const req = await fetch(`https://api.dashblocks.org/users/${user}/following`)
+const getDashUserFollowing = async (user, offset, limit) => {
+    const req = await fetch(`https://api.dashblocks.org/users/${user}/following?offset=${offset}&limit=${limit}`)
     const res = await req.json()
     return res.following
 }

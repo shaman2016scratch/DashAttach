@@ -45,16 +45,16 @@ const info = {
             const result = await getDashUser(user)
             return result?.profile?.recommendedProject || {}
         },
-        getProjects: async (user) => {
-            const result = await getDashUserProjects(user)
+        getProjects: async (user, offset, limit) => {
+            const result = await getDashUserProjects(user, offset, limit)
             return result || []
         },
-        getFollowers: async (user) => {
-            const result = await getDashUserFollowers(user)
+        getFollowers: async (user, offset, limit) => {
+            const result = await getDashUserFollowers(user, offset, limit)
             return result || []
         },
-        getFollowing: async (user) => {
-            const result = await getDashUserFollowing(user)
+        getFollowing: async (user, offset, limit) => {
+            const result = await getDashUserFollowing(user, offset, limit)
             return result || []
         }
     },
