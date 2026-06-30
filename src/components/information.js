@@ -56,9 +56,30 @@ const info = {
         getFollowing: async (user, offset, limit) => {
             const result = await getDashUserFollowing(user, offset, limit)
             return result || []
+        },
+        getGradient: async (user) => {
+            const result = await getDashUser(user)
+            return result?.profile?.gradient || null
         }
     },
-    projects: {}
+    projects: {
+        getName: async (project) => {
+            const result = await getDashProject(project)
+            return result?.name || ""
+        },
+        getAuthorId: async (project) => {
+            const result = await getDashProject(project)
+            return result?.author?.id || null
+        },
+        getAuthorUsername: async (project) => {
+            const result = await getDashProject(project)
+            return result?.author?.username || ""
+        },
+        getDescription: async (project) => {
+            const result = await getDashProject(project)
+            return result?.description || ""
+        }
+    }
 }
 
 export default info
