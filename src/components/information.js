@@ -1,5 +1,4 @@
-import { getDashUser, getDashProject } from "../help/apis.js"
-import { DashAttachData, setDashAttachData } from "../help/data.js"
+import { getDashUser, getDashProject, getDashUserProjects, getDashUserFollowers, getDashUserFollowing } from "../help/apis.js"
 
 const info = {
     users: {
@@ -45,6 +44,18 @@ const info = {
         getRecommendedProject: async (user) => {
             const result = await getDashUser(user)
             return result?.profile?.recommendedProject || {}
+        },
+        getProjects: async (user) => {
+            const result = await getDashUserProjects(user)
+            return result || []
+        },
+        getFollowers: async (user) => {
+            const result = await getDashUserFollowers(user)
+            return result || []
+        },
+        getFollowing: async (user) => {
+            const result = await getDashUserFollowing(user)
+            return result || []
         }
     },
     projects: {}

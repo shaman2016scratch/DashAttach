@@ -50,4 +50,22 @@ const getDashProject = async (project) => {
     return res.project
 }
 
-export { checkIsLogin, singinDash, getSessionDash, getDashUser, getDashProject }
+const getDashUserProjects = async (user) => {
+    const req = await fetch(`https://api.dashblocks.org/users/${user}/projects`)
+    const res = await req.json()
+    return res.projects
+}
+
+const getDashUserFollowers = async (user) => {
+    const req = await fetch(`https://api.dashblocks.org/users/${user}/followers`)
+    const res = await req.json()
+    return res.followers
+}
+
+const getDashUserFollowing = async (user) => {
+    const req = await fetch(`https://api.dashblocks.org/users/${user}/following`)
+    const res = await req.json()
+    return res.following
+}
+
+export { checkIsLogin, singinDash, getSessionDash, getDashUser, getDashProject, getDashUserProjects, getDashUserFollowers, getDashUserFollowing }
