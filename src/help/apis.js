@@ -68,4 +68,12 @@ const getDashUserFollowing = async (user, offset, limit) => {
     return res.following
 }
 
-export { checkIsLogin, singinDash, getSessionDash, getDashUser, getDashProject, getDashUserProjects, getDashUserFollowers, getDashUserFollowing }
+const getSessionMessagesDash = async () => {
+    const req = await fetch("https://api.dashblocks.org/session/messages", {
+        credentials: "include"
+    })
+    const res = await req.json()
+    return res.messages
+}
+
+export { checkIsLogin, singinDash, getSessionDash, getDashUser, getDashProject, getDashUserProjects, getDashUserFollowers, getDashUserFollowing, getSessionMessagesDash }

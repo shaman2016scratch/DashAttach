@@ -60,6 +60,9 @@ const info = {
         getGradient: async (user) => {
             const result = await getDashUser(user)
             return result?.profile?.gradient || null
+        },
+        getAvatar: (user) => {
+            return `https://api.dashblocks.org/users/avatars/${user}`
         }
     },
     projects: {
@@ -78,6 +81,9 @@ const info = {
         getDescription: async (project) => {
             const result = await getDashProject(project)
             return result?.description || ""
+        },
+        getTrumbnail: (project) => {
+            return `https://api.dashblocks.org/projects/trumbnails/${project}`
         }
     }
 }

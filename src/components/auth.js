@@ -1,4 +1,4 @@
-import { singinDash, getSessionDash, checkIsLogin } from "../help/apis.js"
+import { singinDash, getSessionDash, checkIsLogin, getSessionMessagesDash } from "../help/apis.js"
 import { DashAttachData, setDashAttachData } from "../help/data.js"
 
 const auth = {
@@ -18,7 +18,8 @@ const auth = {
         getMyUsername: async () => {
             const result = await getSessionDash()
             return result?.username || ""
-        }
+        },
+        getMyMessages: getSessionMessagesDash
     }
 }
 
