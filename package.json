@@ -2,12 +2,19 @@
   "name": "dashattach",
   "version": "0.0.1",
   "description": "Library for interacting with the Dash API.",
-  "main": "index.js",
   "homepage": "https://github.com/shaman2016scratch/DashAttach",
+  "bugs": {
+    "url": "https://github.com/shaman2016scratch/DashAttach/issues"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/shaman2016scratch/DashAttach.git"
   },
+  "license": "GPL-3.0",
   "author": "polzovatel_8787",
-  "license": "GPL-3.0"
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
 }
