@@ -1,4 +1,6 @@
-let DashAttachData = {}
+let DashAttachData = {
+    isLogin: false
+}
 
 const setDashAttachData = (data) => {
     DashAttachData = data
