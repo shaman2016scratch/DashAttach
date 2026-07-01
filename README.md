@@ -1,7 +1,7 @@
 # DashAttach
 Dashattach - library for interacting with the Dash API.
 
-Last version: 0.0.2
+Last version: 0.0.3
 
 npm: https://www.npmjs.com/package/dashattach
 
