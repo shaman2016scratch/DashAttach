@@ -6,7 +6,7 @@ import actions from "./src/components/actions.js"
 
 const DashAttach = {
     featuredProjects: async () => {
-        const result = await (await fetch("https://dashblocks.org/featured-projects")).json()
+        const result = await (await fetch("https://api.dashblocks.org/featured-projects")).json()
         return result
     },
     auth,
