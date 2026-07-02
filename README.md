@@ -65,6 +65,10 @@ DashAttach.info.projects.getTrumbnail(id) // get trumbnail user of project. Retu
 ```JavaScript
 await DashAttach.actions.setDescription(description) // set my description
 await DashAttach.actions.uploadAvatar(buffer, filename) // set my avatar
+await DashAttach.actions.follow(user) // follow user
+await DashAttach.actions.unfollow(user) // unfollow user
+await DashAttach.actions.setGradient(gradient) // set gradient. For only Dash Supporters
+await DashAttach.actions.setRecommendedProject(id) // set recommended project
 ```
 ### Other
 ```JavaScript

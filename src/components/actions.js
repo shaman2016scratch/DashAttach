@@ -35,7 +35,65 @@ const actions = {
                 console.log("Please, login!")
                 return {}
             }
-        }
+        },
+        follow: async (target) => {
+            const imIsLogin = await checkIsLogin()
+            if (imIsLogin) {
+                const res = await (await fetch(`https://${DashAttachData.apiUrl}/users/${target}/follow`, {
+                    method: "POST",
+                    credentials: true
+                })).json()
+                return res
+            } else {
+                console.log("Please, login!")
+                return {}
+            }
+        },
+        unfollow: async (target) => {
+            const imIsLogin = await checkIsLogin()
+            if (imIsLogin) {
+                const res = await (await fetch(`https://${DashAttachData.apiUrl}/users/${target}/unfollow`, {
+                    method: "POST",
+                    credentials: true
+                })).json()
+                return res
+            } else {
+                console.log("Please, login!")
+                return {}
+            }
+        },
+        setGradient: async (gradient) => {
+            const imIsLogin = await checkIsLogin()
+            if (imIsLogin) {
+                const res = await (await fetch(`https://${DashAttachData.apiUrl}/users/set-gradient`, {
+                    method: "POST",
+                    credentials: true,
+                    body: JSON.stringify({
+                        gradiend
+                    })
+                })).json()
+                return res
+            } else {
+                console.log("Please, login!")
+                return {}
+            }
+        },
+        setRecommendedProject: async (projectId) => {
+            const imIsLogin = await checkIsLogin()
+            if (imIsLogin) {
+                const res = await (await fetch(`https://${DashAttachData.apiUrl}/users/set-recommended-project`, {
+                    method: "POST",
+                    credentials: true,
+                    body: JSON.stringify({
+                        projectId
+                    })
+                })).json()
+                return res
+            } else {
+                console.log("Please, login!")
+                return {}
+            }
+        },
     }
 }
 

@@ -6,7 +6,7 @@ const checkIsLogin = async () => {
     })
     const res = await req.json()
     let returN = false
-    if (res?.ok || false) {
+    if (res.ok) {
         returN = true
     }
     return returN
