@@ -62,6 +62,9 @@ await DashAttach.info.projects.getDescription(id) // get description of project.
 DashAttach.info.projects.getTrumbnail(id) // get trumbnail user of project. Return: string
 ```
 ### Actions
+```JavaScript
+await DashAttach.actions.setDescription(description) // set my description
+```
 ### Other
 ```JavaScript
 await DashAttach.featuredProjects(offset, limit) // get featured projects. Return: array

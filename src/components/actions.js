@@ -3,7 +3,7 @@ import { DashAttachData } from "../help/data.js"
 
 const actions = {
     profile: {
-        setDescription: (value) => {
+        setDescription: async (value) => {
             if (await checkIsLogin()) {
                 const res = await (await fetch(`https://${DashAttachData.apiUrl}/set-description`, {
                     method: "POST",
