@@ -1,4 +1,5 @@
 import { getDashUser, getDashProject, getDashUserProjects, getDashUserFollowers, getDashUserFollowing } from "../help/apis.js"
+import { DashAttachData } from "../help/data.js"
 
 const info = {
     users: {
@@ -62,7 +63,7 @@ const info = {
             return result?.profile?.gradient || null
         },
         getAvatar: (user) => {
-            return `https://api.dashblocks.org/users/avatars/${user}`
+            return `https://${DashAttachData.apiUrl}/users/avatars/${user}`
         }
     },
     projects: {
@@ -83,7 +84,7 @@ const info = {
             return result?.description || ""
         },
         getTrumbnail: (project) => {
-            return `https://api.dashblocks.org/projects/trumbnails/${project}`
+            return `https://${DashAttachData.apiUrl}/projects/trumbnails/${project}`
         }
     }
 }
