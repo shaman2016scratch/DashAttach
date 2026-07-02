@@ -64,6 +64,7 @@ DashAttach.info.projects.getTrumbnail(id) // get trumbnail user of project. Retu
 ### Actions
 ```JavaScript
 await DashAttach.actions.setDescription(description) // set my description
+await DashAttach.actions.uploadAvatar(buffer, filename) // set my avatar
 ```
 ### Other
 ```JavaScript
