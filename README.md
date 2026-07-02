@@ -69,6 +69,9 @@ await DashAttach.actions.follow(user) // follow user
 await DashAttach.actions.unfollow(user) // unfollow user
 await DashAttach.actions.setGradient(gradient) // set gradient. For only Dash Supporters
 await DashAttach.actions.setRecommendedProject(id) // set recommended project
+await DashAttach.actions.addLink(label, url) // add link
+await DashAttach.actions.updateLink(id, label, url) // update link
+await DashAttach.actions.remoweLink(id) // delete link
 ```
 ### Other
 ```JavaScript

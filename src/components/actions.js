@@ -94,6 +94,57 @@ const actions = {
                 return {}
             }
         },
+        addLink: async (label, url) => {
+            const imIsLogin = await checkIsLogin()
+            if (imIsLogin) {
+                const res = await (await fetch(`https://${DashAttachData.apiUrl}/users/add-link`, {
+                    method: "POST",
+                    credentials: true,
+                    body: JSON.stringify({
+                        label,
+                        link: url
+                    })
+                })).json()
+                return res
+            } else {
+                console.log("Please, login!")
+                return {}
+            }
+        },
+        updateLink: async (id, label, url) => {
+            const imIsLogin = await checkIsLogin()
+            if (imIsLogin) {
+                const res = await (await fetch(`https://${DashAttachData.apiUrl}/users/update-link`, {
+                    method: "POST",
+                    credentials: true,
+                    body: JSON.stringify({
+                        linkIndex: id,
+                        label,
+                        link: url
+                    })
+                })).json()
+                return res
+            } else {
+                console.log("Please, login!")
+                return {}
+            }
+        },
+        remoweLink: async (id) => {
+            const imIsLogin = await checkIsLogin()
+            if (imIsLogin) {
+                const res = await (await fetch(`https://${DashAttachData.apiUrl}/users/remowe-link`, {
+                    method: "POST",
+                    credentials: true,
+                    body: JSON.stringify({
+                        linkIndex: id
+                    })
+                })).json()
+                return res
+            } else {
+                console.log("Please, login!")
+                return {}
+            }
+        }
     }
 }
 
