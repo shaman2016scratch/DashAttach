@@ -1,5 +1,6 @@
 const DashAttachDataDefault = {
-    isLogin: false
+    isLogin: false,
+    apiUrl: "api.dashblocks.org"
 }
 
 let DashAttachData = DashAttachDataDefault

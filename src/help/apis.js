@@ -1,18 +1,19 @@
 import { DashAttachData, setDashAttachData } from "../help/data.js"
 
 const checkIsLogin = async () => {
-    const req = await fetch("https://api.dashblocks.org/session", {
+    const req = await fetch(`https://${DashAttachData.apiUrl}/session`, {
         credentials: "include"
     })
+    const res = await req.json()
     let returN = false
-    if (req.ok) {
+    if (res?.ok || false) {
         returN = true
     }
     return returN
 }
 
 const singinDash = async (userId, password) => {
-    const req = await fetch("https://api.dashblocks.org/auth/login", {
+    const req = await fetch(`https://${DashAttachData.apiUrl}/auth/login`, {
         credentials: "include",
         method: "POST",
         headers: {
@@ -31,7 +32,7 @@ const singinDash = async (userId, password) => {
 }
 
 const getSessionDash = async () => {
-    const req = await fetch("https://api.dashblocks.org/session", {
+    const req = await fetch(`https://${DashAttachData.apiUrl}/session`, {
         credentials: "include"
     })
     const res = await req.json()
@@ -39,37 +40,37 @@ const getSessionDash = async () => {
 }
 
 const getDashUser = async (user) => {
-    const req = await fetch(`https://api.dashblocks.org/users/${user}`)
+    const req = await fetch(`https://${DashAttachData.apiUrl}/users/${user}`)
     const res = await req.json()
     return res.user
 }
 
 const getDashProject = async (project) => {
-    const req = await fetch(`https://api.dashblocks.org/projects/${project}`)
+    const req = await fetch(`https://${DashAttachData.apiUrl}/projects/${project}`)
     const res = await req.json()
     return res.project
 }
 
 const getDashUserProjects = async (user, offset, limit) => {
-    const req = await fetch(`https://api.dashblocks.org/users/${user}/projects?offset=${offset}&limit=${limit}`)
+    const req = await fetch(`https://${DashAttachData.apiUrl}/users/${user}/projects?offset=${offset}&limit=${limit}`)
     const res = await req.json()
     return res.projects
 }
 
 const getDashUserFollowers = async (user, offset, limit) => {
-    const req = await fetch(`https://api.dashblocks.org/users/${user}/followers?offset=${offset}&limit=${limit}`)
+    const req = await fetch(`https://${DashAttachData.apiUrl}/users/${user}/followers?offset=${offset}&limit=${limit}`)
     const res = await req.json()
     return res.followers
 }
 
 const getDashUserFollowing = async (user, offset, limit) => {
-    const req = await fetch(`https://api.dashblocks.org/users/${user}/following?offset=${offset}&limit=${limit}`)
+    const req = await fetch(`https://${DashAttachData.apiUrl}/users/${user}/following?offset=${offset}&limit=${limit}`)
     const res = await req.json()
     return res.following
 }
 
 const getSessionMessagesDash = async () => {
-    const req = await fetch("https://api.dashblocks.org/session/messages", {
+    const req = await fetch(`https://${DashAttachData.apiUrl}/session/messages`, {
         credentials: "include"
     })
     const res = await req.json()
