@@ -1,7 +1,7 @@
 # DashAttach
 Dashattach - library for interacting with the Dash API.
 
-Last version: 0.0.3
+Last version: [0.0.3](https://www.npmjs.com/package/dashattach/v/0.0.3)
 
 npm: https://www.npmjs.com/package/dashattach
 
@@ -61,6 +61,7 @@ await DashAttach.info.projects.getAuthorUsername(id) // get username of author o
 await DashAttach.info.projects.getDescription(id) // get description of project. Return: string
 DashAttach.info.projects.getTrumbnail(id) // get trumbnail user of project. Return: string
 ```
+### Actions
 ### Other
 ```JavaScript
 await DashAttach.featuredProjects(offset, limit) // get featured projects. Return: array
