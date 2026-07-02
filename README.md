@@ -6,12 +6,17 @@ Last version: [0.2.0](https://www.npmjs.com/package/dashattach/v/0.2.0)
 npm: https://www.npmjs.com/package/dashattach
 
 ## Documentation
-
-Installing - `npm i dashattach`
-
+**Warning: no use in sites.**
 ### Install and import
+For last version:
 ```bash
 npm install dashattach
+```
+For other version:
+```bash
+npm install dashattach@version
+# example:
+npm install dashattach@0.2.0
 ```
 ```JavaScript (ESM)
 import DashAttach from "dashattach"
@@ -77,3 +82,5 @@ await DashAttach.actions.remoweLink(id) // delete link
 ```JavaScript
 await DashAttach.featuredProjects(offset, limit) // get featured projects. Return: array
 ```
+### CORS
+CORS Dash API: localhost:3000 and dashblocks.org. Please, no use DashAttach in your web sites.
