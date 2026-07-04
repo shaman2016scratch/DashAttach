@@ -144,6 +144,48 @@ const actions = {
                 console.log("Please, login!")
                 return {}
             }
+        },
+        fireProject: async (id) => {
+            const imIsLogin = await checkIsLogin()
+            if (imIsLogin) {
+                const res = await (await fetch(`https://${DashAttachData.apiUrl}/projects/${id}/fire`, {
+                    method: "POST",
+                    credentials: true
+                })).json()
+                return res
+            } else {
+                console.log("Please, login!")
+                return {}
+            }
+        },
+        unfireProject: async (id) => {
+            const imIsLogin = await checkIsLogin()
+            if (imIsLogin) {
+                const res = await (await fetch(`https://${DashAttachData.apiUrl}/projects/${id}/fire`, {
+                    method: "DELETE",
+                    credentials: true
+                })).json()
+                return res
+            } else {
+                console.log("Please, login!")
+                return {}
+            }
+        },
+        uploadTrumbnail: async (id, file, filename) => {
+            const imIsLogin = await checkIsLogin()
+            if (imIsLogin) {
+                const BODY = new FormData()
+                BODY.append('file', file, { filename })
+                const res = await (await fetch(`https://${DashAttachData.apiUrl}/projects/${id}/upload-avatar`, {
+                    method: "POST",
+                    credentials: true,
+                    body: BODY
+                })).json()
+                return res
+            } else {
+                console.log("Please, login!")
+                return {}
+            }
         }
     }
 }

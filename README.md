@@ -76,6 +76,7 @@ await DashAttach.info.projects.getAuthorId(id) // get id of author of project. R
 await DashAttach.info.projects.getAuthorUsername(id) // get username of author of project. Return: string
 await DashAttach.info.projects.getDescription(id) // get description of project. Return: string
 DashAttach.info.projects.getTrumbnail(id) // get trumbnail user of project. Return: string
+await DashAttach.info.projects.stats.fires(id) // get fires of project. Return: numbet
 ```
 ### Actions
 ```JavaScript
@@ -88,6 +89,9 @@ await DashAttach.actions.setRecommendedProject(id) // set recommended project
 await DashAttach.actions.addLink(label, url) // add link
 await DashAttach.actions.updateLink(id, label, url) // update link
 await DashAttach.actions.remoweLink(id) // delete link
+await DashAttach.actions.fireProject(id) // fire project
+await DashAttach.actions.unfireProject(id) // unfire project
+await DashAttach.actions.uploadTrumbnail(id) // upload trumbnail for project
 ```
 ### Other
 ```JavaScript

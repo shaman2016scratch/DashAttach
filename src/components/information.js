@@ -99,6 +99,12 @@ const info = {
         },
         getTrumbnail: (project) => {
             return `https://${DashAttachData.apiUrl}/projects/trumbnails/${project}`
+        },
+        stats: {
+            fires: (project) => {
+                const result = await getDashProject(project)
+                return result?.stats?.fires || 0
+            }
         }
     }
 }
