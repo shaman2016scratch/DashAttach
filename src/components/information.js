@@ -66,15 +66,15 @@ const info = {
             return `https://${DashAttachData.apiUrl}/users/avatars/${user}`
         },
         stats: {
-            projects: (user) => {
+            projects: async (user) => {
                 const result = await getDashUser(user)
                 return result?.profile?.stats?.projects || null
             },
-            followers: (user) => {
+            followers: async (user) => {
                 const result = await getDashUser(user)
                 return result?.profile?.stats?.followers || null
             },
-            following: (user) => {
+            following: async (user) => {
                 const result = await getDashUser(user)
                 return result?.profile?.stats?.following || null
             }
@@ -101,7 +101,7 @@ const info = {
             return `https://${DashAttachData.apiUrl}/projects/trumbnails/${project}`
         },
         stats: {
-            fires: (project) => {
+            fires: async (project) => {
                 const result = await getDashProject(project)
                 return result?.stats?.fires || 0
             }
