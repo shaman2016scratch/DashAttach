@@ -13,11 +13,11 @@ const auth = {
         },
         getMyId: async () => {
             const result = await getSessionDash()
-            return result?.id || null
+            return result?.user?.id || null
         },
         getMyUsername: async () => {
             const result = await getSessionDash()
-            return result?.username || ""
+            return result?.user?.username || ""
         },
         getMyMessages: getSessionMessagesDash
     }

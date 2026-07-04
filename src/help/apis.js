@@ -36,7 +36,7 @@ const getSessionDash = async () => {
         credentials: "include"
     })
     const res = await req.json()
-    return res.user
+    return res
 }
 
 const getDashUser = async (user) => {
