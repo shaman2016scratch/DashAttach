@@ -9,7 +9,7 @@ const actions = {
             if (imIsLogin) {
                 const res = await (await fetch(`https://${DashAttachData.apiUrl}/users/set-description`, {
                     method: "POST",
-                    credentials: true,
+                    credentials: "include",
                     body: JSON.stringify({
                         description: value
                     })
@@ -27,7 +27,7 @@ const actions = {
                 BODY.append('file', file, { filename })
                 const res = await (await fetch(`https://${DashAttachData.apiUrl}/users/upload-avatar`, {
                     method: "POST",
-                    credentials: true,
+                    credentials: "include",
                     body: BODY
                 })).json()
                 return res
@@ -41,7 +41,7 @@ const actions = {
             if (imIsLogin) {
                 const res = await (await fetch(`https://${DashAttachData.apiUrl}/users/${target}/follow`, {
                     method: "POST",
-                    credentials: true
+                    credentials: "include"
                 })).json()
                 return res
             } else {
@@ -54,7 +54,7 @@ const actions = {
             if (imIsLogin) {
                 const res = await (await fetch(`https://${DashAttachData.apiUrl}/users/${target}/unfollow`, {
                     method: "POST",
-                    credentials: true
+                    credentials: "include"
                 })).json()
                 return res
             } else {
@@ -67,7 +67,7 @@ const actions = {
             if (imIsLogin) {
                 const res = await (await fetch(`https://${DashAttachData.apiUrl}/users/set-gradient`, {
                     method: "POST",
-                    credentials: true,
+                    credentials: "include",
                     body: JSON.stringify({
                         gradiend
                     })
@@ -83,7 +83,7 @@ const actions = {
             if (imIsLogin) {
                 const res = await (await fetch(`https://${DashAttachData.apiUrl}/users/set-recommended-project`, {
                     method: "POST",
-                    credentials: true,
+                    credentials: "include",
                     body: JSON.stringify({
                         projectId
                     })
@@ -99,7 +99,7 @@ const actions = {
             if (imIsLogin) {
                 const res = await (await fetch(`https://${DashAttachData.apiUrl}/users/add-link`, {
                     method: "POST",
-                    credentials: true,
+                    credentials: "include",
                     body: JSON.stringify({
                         label,
                         link: url
@@ -116,7 +116,7 @@ const actions = {
             if (imIsLogin) {
                 const res = await (await fetch(`https://${DashAttachData.apiUrl}/users/update-link`, {
                     method: "POST",
-                    credentials: true,
+                    credentials: "include",
                     body: JSON.stringify({
                         linkIndex: id,
                         label,
@@ -134,7 +134,7 @@ const actions = {
             if (imIsLogin) {
                 const res = await (await fetch(`https://${DashAttachData.apiUrl}/users/remowe-link`, {
                     method: "POST",
-                    credentials: true,
+                    credentials: "include",
                     body: JSON.stringify({
                         linkIndex: id
                     })
@@ -150,7 +150,7 @@ const actions = {
             if (imIsLogin) {
                 const res = await (await fetch(`https://${DashAttachData.apiUrl}/projects/${id}/fire`, {
                     method: "POST",
-                    credentials: true
+                    credentials: "include"
                 })).json()
                 return res
             } else {
@@ -163,7 +163,7 @@ const actions = {
             if (imIsLogin) {
                 const res = await (await fetch(`https://${DashAttachData.apiUrl}/projects/${id}/fire`, {
                     method: "DELETE",
-                    credentials: true
+                    credentials: "include"
                 })).json()
                 return res
             } else {
@@ -178,7 +178,7 @@ const actions = {
                 BODY.append('file', file, { filename })
                 const res = await (await fetch(`https://${DashAttachData.apiUrl}/projects/${id}/upload-avatar`, {
                     method: "POST",
-                    credentials: true,
+                    credentials: "include",
                     body: BODY
                 })).json()
                 return res
