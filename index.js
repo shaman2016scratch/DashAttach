@@ -3,6 +3,7 @@ import { DashAttachData, setDashAttachData } from "./src/help/data.js"
 import auth from "./src/components/auth.js"
 import info from "./src/components/information.js"
 import actions from "./src/components/actions.js"
+import dev from "./src/components/dev/index.js"
 
 const DashAttach = {
     featuredProjects: async (offset, limit) => {
@@ -11,7 +12,8 @@ const DashAttach = {
     },
     auth,
     info,
-    actions
+    actions,
+    dev
 }
 
 export default DashAttach
