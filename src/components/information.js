@@ -64,6 +64,20 @@ const info = {
         },
         getAvatar: (user) => {
             return `https://${DashAttachData.apiUrl}/users/avatars/${user}`
+        },
+        stats: {
+            projects: (user) => {
+                const result = await getDashUser(user)
+                return result?.profile?.stats?.projects || null
+            },
+            followers: (user) => {
+                const result = await getDashUser(user)
+                return result?.profile?.stats?.followers || null
+            },
+            following: (user) => {
+                const result = await getDashUser(user)
+                return result?.profile?.stats?.following || null
+            }
         }
     },
     projects: {

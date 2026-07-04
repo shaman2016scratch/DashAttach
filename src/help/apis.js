@@ -69,8 +69,8 @@ const getDashUserFollowing = async (user, offset, limit) => {
     return res.following
 }
 
-const getSessionMessagesDash = async () => {
-    const req = await fetch(`https://${DashAttachData.apiUrl}/session/messages`, {
+const getSessionMessagesDash = async (offset, limit) => {
+    const req = await fetch(`https://${DashAttachData.apiUrl}/session/messages?offset=${offset}&limit=${limit}`, {
         credentials: "include"
     })
     const res = await req.json()
