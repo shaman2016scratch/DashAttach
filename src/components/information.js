@@ -68,15 +68,15 @@ const info = {
         stats: {
             projects: async (user) => {
                 const result = await getDashUser(user)
-                return result?.profile?.stats?.projects || null
+                return result?.profile?.stats?.projects || 0
             },
             followers: async (user) => {
                 const result = await getDashUser(user)
-                return result?.profile?.stats?.followers || null
+                return result?.profile?.stats?.followers || 0
             },
             following: async (user) => {
                 const result = await getDashUser(user)
-                return result?.profile?.stats?.following || null
+                return result?.profile?.stats?.following || 0
             }
         }
     },
