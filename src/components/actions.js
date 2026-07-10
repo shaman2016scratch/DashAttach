@@ -186,7 +186,20 @@ const actions = {
                 console.log("Please, login!")
                 return {}
             }
-        }
+        },
+        viewProject: async (id) => {
+            const imIsLogin = await checkIsLogin()
+            if (imIsLogin) {
+                const res = await (await fetch(`https://${DashAttachData.apiUrl}/projects/${id}/view`, {
+                    method: "POST",
+                    credentials: "include"
+                })).json()
+                return res
+            } else {
+                console.log("Please, login!")
+                return {}
+            }
+        },
     }
 }
 

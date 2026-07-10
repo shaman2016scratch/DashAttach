@@ -104,6 +104,10 @@ const info = {
             fires: async (project) => {
                 const result = await getDashProject(project)
                 return result?.stats?.fires || 0
+            },
+            views: async (project) => {
+                const result = await getDashProject(project)
+                return result?.stats?.views || 0
             }
         }
     }
