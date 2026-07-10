@@ -1,5 +1,5 @@
 # DashAttach
-Dashattach - library for interacting with the Dash API.
+Dashattach - library for interacting with the Dash API. Oficial (created by dashblocks.org junior developer).
 
 Last version: [0.3.0](https://www.npmjs.com/package/dashattach/v/0.3.0)
 
@@ -29,7 +29,8 @@ await DashAttach.auth.login("Dasher", "Password30532")
 // Check is login:
 await DashAttach.auth.myInfo.isLogin()
 // Example:
-if (await DashAttach.auth.myInfo.isLogin()) {
+const isLogin = await DashAttach.auth.myInfo.isLogin()
+if (isLogin) {
     console.log("You is login in Dash")
 } else {
     console.log("You is not login in Dash")
@@ -101,3 +102,20 @@ await DashAttach.featuredProjects(offset, limit) // get featured projects. Retur
 ```
 ### CORS
 CORS Dash API: localhost:3000 and dashblocks.org. Please, no use DashAttach in your web sites.
+### Examples
+```JavaScript
+// 1st example: Login utility
+import DashAttach from 'dashattach'
+import readline from 'node:readline'
+
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout,
+});
+
+rl.question(`What's your username/id?`, user => {
+    rl.question(`What's your password?`, password => {
+        DashAttach.auth.login(user, password)
+    });
+});
+```
