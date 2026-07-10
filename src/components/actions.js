@@ -200,6 +200,19 @@ const actions = {
                 return {}
             }
         },
+        markAllMessagesAsRead: async (id) => {
+            const imIsLogin = await checkIsLogin()
+            if (imIsLogin) {
+                const res = await (await fetch(`https://${DashAttachData.apiUrl}/messages/mark-all-as-read`, {
+                    method: "POST",
+                    credentials: "include"
+                })).json()
+                return res
+            } else {
+                console.log("Please, login!")
+                return {}
+            }
+        }
     }
 }
 

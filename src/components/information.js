@@ -77,6 +77,10 @@ const info = {
             following: async (user) => {
                 const result = await getDashUser(user)
                 return result?.profile?.stats?.following || 0
+            },
+            unreadMessages: async (user) => {
+                const result = await getDashUser(user)
+                return result?.profile?.unreadMessages || 0
             }
         }
     },

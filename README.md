@@ -61,6 +61,7 @@ DashAttach.info.users.getAvatar(user) // get avatar url of user. Return: string
 await DashAttach.info.users.stats.projects(user) // get count of all projects of user. Return: number
 await DashAttach.info.users.stats.followers(user) // get count of all followers of user. Return: number
 await DashAttach.info.users.stats.following(user) // get count of all following of user. Return: number
+await DashAttach.info.users.stats.unreadMessages(user) // get count of unread messages of user. Return: number
 /*
     Argument types:
     id = get info by id
@@ -95,6 +96,7 @@ await DashAttach.actions.fireProject(id) // fire project
 await DashAttach.actions.unfireProject(id) // unfire project
 await DashAttach.actions.uploadTrumbnail(id) // upload trumbnail for project
 await DashAttach.actions.viewProject(id) // add view project
+await DashAttach.actions.markAllMessagesAsRead(id) // mark all messages as read
 ```
 ### Other
 ```JavaScript
