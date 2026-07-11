@@ -1,6 +1,6 @@
 {
   "name": "dashattach",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "Library for interacting with the Dash API.",
   "homepage": "https://github.com/shaman2016scratch/DashAttach",
   "bugs": {
