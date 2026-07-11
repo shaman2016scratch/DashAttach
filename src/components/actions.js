@@ -176,7 +176,7 @@ const actions = {
             if (imIsLogin) {
                 const BODY = new FormData()
                 BODY.append('file', file, { filename })
-                const res = await (await fetch(`https://${DashAttachData.apiUrl}/projects/${id}/upload-avatar`, {
+                const res = await (await fetch(`https://${DashAttachData.apiUrl}/projects/${id}/upload-trumbnail`, {
                     method: "POST",
                     credentials: "include",
                     body: BODY
@@ -206,6 +206,24 @@ const actions = {
                 const res = await (await fetch(`https://${DashAttachData.apiUrl}/messages/mark-all-as-read`, {
                     method: "POST",
                     credentials: "include"
+                })).json()
+                return res
+            } else {
+                console.log("Please, login!")
+                return {}
+            }
+        },
+        uploadProject: async (file, filename, name, description) => {
+            const imIsLogin = await checkIsLogin()
+            if (imIsLogin) {
+                const BODY = new FormData()
+                BODY.append('file', file, { filename })
+                BODY.append('name', name.toString())
+                BODY.append('description', description.toString())
+                const res = await (await fetch(`https://${DashAttachData.apiUrl}/save-project`, {
+                    method: "POST",
+                    credentials: "include",
+                    body: BODY
                 })).json()
                 return res
             } else {

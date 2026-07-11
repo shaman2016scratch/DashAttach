@@ -95,9 +95,10 @@ await DashAttach.actions.updateLink(id, label, url) // update link
 await DashAttach.actions.remoweLink(id) // delete link
 await DashAttach.actions.fireProject(id) // fire project
 await DashAttach.actions.unfireProject(id) // unfire project
-await DashAttach.actions.uploadTrumbnail(id) // upload trumbnail for project
+await DashAttach.actions.uploadTrumbnail(id, buffer, filename) // upload trumbnail for project
 await DashAttach.actions.viewProject(id) // add view project
 await DashAttach.actions.markAllMessagesAsRead(id) // mark all messages as read
+await DashAttach.actions.uploadProject(buffer, filename, name, description) // upload project
 ```
 ### Other
 ```JavaScript
@@ -121,4 +122,28 @@ rl.question(`What's your username/id?`, user => {
         DashAttach.auth.login(user, password)
     });
 });
+// 2nd example: project publish
+import DashAttach from 'dashattach'
+import fs from 'fs'
+import readline from 'node:readline'
+
+const input = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout,
+});
+
+async function publishProject() {
+    rl.question(`What's file name?`, filename => {
+        rl.question(`What's file path?`, filepath => {
+            const buffer = fs.readFileSync(filepath)
+            rl.question(`What's project name?`, name => {
+                rl.question(`What's project description?`, description => {
+                    await DashAttach.actions.uploadProject(buffer, filename, name, description)
+                });
+            });
+        });
+    });
+}
+
+publishProject()
 ```
