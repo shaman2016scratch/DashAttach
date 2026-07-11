@@ -40,7 +40,7 @@ if (isLogin) {
 ```JavaScript
 await DashAttach.auth.myInfo.getMyId() // get my id in Dash. Return: number/null
 await DashAttach.auth.myInfo.getMyUsername() // get my username in Dash. Return: string
-await DashAttach.auth.myInfo.getMyMessages(offset, limit) // get my messages in Dash. Return: array
+await DashAttach.auth.myInfo.getMyMessages(offset, limit) // get my messages in Dash. Return: array. Max limit: 40
 ```
 ### Get user information
 ```JavaScript
@@ -53,9 +53,9 @@ await DashAttach.info.users.date.lastActive(user) // get date of last active of 
 await DashAttach.info.users.getLinks(user) // get links of user. Return: array
 await DashAttach.info.users.getAchievements(user) // get achievements of user. Return: array
 await DashAttach.info.users.getRecommendedProject(user) // get recommended project of user. Return: object
-await DashAttach.info.users.getProjects(user, offset, limit) // get projects of user. Return: array
-await DashAttach.info.users.getFollowers(user, offset, limit) // get followers of user. Return: array
-await DashAttach.info.users.getFollowing(user, offset, limit) // get following of user. Return: array
+await DashAttach.info.users.getProjects(user, offset, limit) // get projects of user. Return: array. Max limit: 40
+await DashAttach.info.users.getFollowers(user, offset, limit) // get followers of user. Return: array. Max limit: 40
+await DashAttach.info.users.getFollowing(user, offset, limit) // get following of user. Return: array. Max limit: 40
 await DashAttach.info.users.getGradient(user) // get gradient (olny for Dash Supporters) of user. Return: unknown
 DashAttach.info.users.getAvatar(user) // get avatar url of user. Return: string
 await DashAttach.info.users.stats.projects(user) // get count of all projects of user. Return: number
@@ -77,9 +77,10 @@ await DashAttach.info.projects.getName(id) // get name of project. Return: strin
 await DashAttach.info.projects.getAuthorId(id) // get id of author of project. Return: number
 await DashAttach.info.projects.getAuthorUsername(id) // get username of author of project. Return: string
 await DashAttach.info.projects.getDescription(id) // get description of project. Return: string
-DashAttach.info.projects.getTrumbnail(id) // get trumbnail user of project. Return: string
+DashAttach.info.projects.getTrumbnail(id) // get trumbnail url of project. Return: string
 await DashAttach.info.projects.stats.fires(id) // get fires of project. Return: number
 await DashAttach.info.projects.stats.views(id) // get views of project. Return: number
+DashAttach.info.projects.getFileURL(id) // get file url of project. Return: string
 ```
 ### Actions
 ```JavaScript
@@ -100,7 +101,7 @@ await DashAttach.actions.markAllMessagesAsRead(id) // mark all messages as read
 ```
 ### Other
 ```JavaScript
-await DashAttach.featuredProjects(offset, limit) // get featured projects. Return: array
+await DashAttach.featuredProjects(offset, limit) // get featured projects. Return: array. Max limit: 40
 ```
 ### CORS
 CORS Dash API: localhost:3000 and dashblocks.org. Please, no use DashAttach in your web sites.

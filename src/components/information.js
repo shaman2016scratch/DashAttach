@@ -113,6 +113,9 @@ const info = {
                 const result = await getDashProject(project)
                 return result?.stats?.views || 0
             }
+        },
+        getFileURL: (project) => {
+            return `https://${DashAttachData.apiUrl}/get-projects/${project}`
         }
     }
 }
