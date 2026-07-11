@@ -183,7 +183,8 @@ await DashAttachPlus.projects.info(id) /*
         views: number,
         author: {
             username: string,
-            id: number
+            id: number,
+            role: string
         }
     }
 */
@@ -205,7 +206,16 @@ await DashAttachPlus.users.info(user) /*
     Return Content: {
         username: string,
         id: number,
-        description: string
+        description: string,
+        role: string,
+        projects: array,
+        stats: {
+            projects: number,
+            following: number,
+            followers: number
+        },
+        following: array,
+        followers: array
     }
 */
 await DashAttachPlus.users.avatar(user) /*

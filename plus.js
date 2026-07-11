@@ -32,6 +32,13 @@ const DashAttachPlus = {
             returN.id = await DashAttach.info.users.getId(user)
             returN.description = await DashAttach.info.users.getDescription(user)
             returN.role = await DashAttach.info.users.getRole(user)
+            returN.projects = await DashAttach.info.users.getProjects(user)
+            returN.stats = {}
+            returN.stats.projects = await DashAttach.info.users.stats.projects(user)
+            returN.stats.following = await DashAttach.info.users.stats.following(user)
+            returN.stats.followers = await DashAttach.info.users.stats.followers(user)
+            returN.following = await DashAttach.info.users.getFollowing(user)
+            returN.followers = await DashAttach.info.users.getFollowers(user)
             return returN
         },
         avatar: async (id) => {
