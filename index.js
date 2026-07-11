@@ -8,12 +8,22 @@ import dev from "./src/components/dev/index.js"
 const DashAttach = {
     featuredProjects: async (offset, limit) => {
         const result = await (await fetch(`https://${DashAttachData.apiUrl}/featured-projects?offset=${+offset || 0}&limit=${+limit || 5}`)).json()
-        return result
+        return result.projects
     },
     auth,
     info,
     actions,
-    dev
+    dev,
+    search: {
+        projects: async (q, offset, limit) => {
+            const result = await (await fetch(`https://${DashAttachData.apiUrl}/search/projects?offset=${+offset || 0}&limit=${+limit || 5}&q=${q}`)).json()
+            return result.results
+        },
+        projectsCount: async (q) => {
+            const result = await (await fetch(`https://${DashAttachData.apiUrl}/search/projects?q=${q}`)).json()
+            return result.total
+        }
+    }
 }
 
 export default DashAttach

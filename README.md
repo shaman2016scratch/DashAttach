@@ -104,6 +104,8 @@ await DashAttach.actions.uploadProject(buffer, filename, name, description) // u
 ### Other
 ```JavaScript
 await DashAttach.featuredProjects(offset, limit) // get featured projects. Return: array. Max limit: 40
+await DashAttach.seatch.projects(q, offset, limit) // search projects in Dash. Return: array. Max limit: 40
+await DashAttach.seatch.projectsCount(q) // count of all projects of search projects. Return: number.
 ```
 ### CORS
 CORS Dash API: localhost:3000 and dashblocks.org. Please, no use DashAttach in your web sites.
