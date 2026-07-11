@@ -77,4 +77,20 @@ const getSessionMessagesDash = async (offset, limit) => {
     return res.messages
 }
 
-export { checkIsLogin, singinDash, getSessionDash, getDashUser, getDashProject, getDashUserProjects, getDashUserFollowers, getDashUserFollowing, getSessionMessagesDash }
+const getSessionActivityDash = async (offset, limit) => {
+    const req = await fetch(`https://${DashAttachData.apiUrl}/session/activity?offset=${offset}&limit=${limit}`, {
+        credentials: "include"
+    })
+    const res = await req.json()
+    return res.activity
+}
+
+const logoutDash = async () => {
+    const req = await fetch(`https://${DashAttachData.apiUrl}/session/logout`, {
+        credentials: "include"
+    })
+    const res = await req.json()
+    return res
+}
+
+export { checkIsLogin, singinDash, getSessionDash, getDashUser, getDashProject, getDashUserProjects, getDashUserFollowers, getDashUserFollowing, getSessionMessagesDash, getSessionActivityDash, logoutDash }

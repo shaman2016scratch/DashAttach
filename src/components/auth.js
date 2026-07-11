@@ -1,4 +1,4 @@
-import { singinDash, getSessionDash, checkIsLogin, getSessionMessagesDash } from "../help/apis.js"
+import { singinDash, getSessionDash, checkIsLogin, getSessionMessagesDash, getSessionActivityDash, logoutDash } from "../help/apis.js"
 import { DashAttachData, setDashAttachData } from "../help/data.js"
 
 const auth = {
@@ -19,8 +19,10 @@ const auth = {
             const result = await getSessionDash()
             return result?.user?.username || ""
         },
-        getMyMessages: getSessionMessagesDash
-    }
+        getMyMessages: getSessionMessagesDash,
+        getActivity: getSessionActivityDash
+    },
+    logout: logoutDash
 }
 
 export default auth

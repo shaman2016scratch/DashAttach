@@ -21,15 +21,15 @@ npm install dashattach@0.2.0
 ```JavaScript (ESM)
 import DashAttach from "dashattach"
 ```
-### Login
+### Session
 ```JavaScript
-await DashAttach.auth.login(user, password)
-// Example:
+await DashAttach.auth.login(user, password) // login
+await DashAttach.auth.myInfo.isLogin() // check is login
+await DashAttach.auth.logout() // logout
+// 1st example:
 await DashAttach.auth.login("Dasher", "Password30532")
-// Check is login:
-await DashAttach.auth.myInfo.isLogin()
-// Example:
 const isLogin = await DashAttach.auth.myInfo.isLogin()
+// 2nd example:
 if (isLogin) {
     console.log("You is login in Dash")
 } else {
@@ -41,6 +41,7 @@ if (isLogin) {
 await DashAttach.auth.myInfo.getMyId() // get my id in Dash. Return: number/null
 await DashAttach.auth.myInfo.getMyUsername() // get my username in Dash. Return: string
 await DashAttach.auth.myInfo.getMyMessages(offset, limit) // get my messages in Dash. Return: array. Max limit: 40
+await DashAttach.auth.myInfo.getActivity(offset, limit) // get activity of my following users in Dash. Return: array. Max limit: 40
 ```
 ### Get user information
 ```JavaScript
