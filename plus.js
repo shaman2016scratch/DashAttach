@@ -11,8 +11,10 @@ const DashAttachPlus = {
             returN.fires = await DashAttach.info.projects.stats.fires(id)
             returN.views = await DashAttach.info.projects.stats.views(id)
             returN.author = {}
-            returnN.author.username = await DashAttach.info.projects.getAuthorUsername(id)
-            returnN.author.id = await DashAttach.info.projects.getAuthorId(id)
+            returN.author.username = await DashAttach.info.projects.getAuthorUsername(id)
+            returN.author.id = await DashAttach.info.projects.getAuthorId(id)
+            returN.author.role = await DashAttach.info.users.getRole(returN.author.username)
+            return returN
         },
         dbp: async (id) => {
             const buffer = await (await fetch(await DashAttach.info.projects.getFileURL(id))).buffer()
@@ -29,6 +31,8 @@ const DashAttachPlus = {
             returN.username = await DashAttach.info.users.getUsername(user)
             returN.id = await DashAttach.info.users.getId(user)
             returN.description = await DashAttach.info.users.getDescription(user)
+            returN.role = await DashAttach.info.users.getRole(user)
+            return returN
         },
         avatar: async (id) => {
             const buffer = await (await fetch(await DashAttach.info.users.getAvatar(id))).buffer()
