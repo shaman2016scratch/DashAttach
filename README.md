@@ -165,3 +165,52 @@ async function publishProject(name, description, filePath, trumbnailFilePath) {
 
 export default publishProject
 ```
+### DashAttachPlus
+DashAttachPush - alternative for DashAttach
+#### Import
+```JavaScript
+import DashAttachPlus from 'dashattach/plus'
+```
+#### Projects
+```JavaScript
+await DashAttachPlus.projects.info(id) /*
+    Info of project
+    Return: object
+    Return content: {
+        name: string,
+        description: string,
+        fires: number,
+        views: number,
+        author: {
+            username: string,
+            id: number
+        }
+    }
+*/
+await DashAttachPlus.projects.dbp(id) /*
+    DBP file (DashBlocks Project, like sb3, type: zip) of project
+    Return: buffer
+*/
+await DashAttachPlus.projects.trumbnail(id) /*
+    trumbnail file of project
+    Return: buffer
+*/
+```
+#### Users
+```JavaScript
+await DashAttachPlus.users.info(user) /*
+    Info of user.
+    Input: username/id
+    Return: Object
+    Return Content: {
+        username: string,
+        id: number,
+        description: string
+    }
+*/
+await DashAttachPlus.users.avatar(user) /*
+    Avatar file of user
+    Input: username/id
+    Return: buffer
+*/
+```
