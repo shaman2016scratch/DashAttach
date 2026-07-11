@@ -122,7 +122,7 @@ rl.question(`What's your username/id?`, user => {
         DashAttach.auth.login(user, password)
     });
 });
-// 2nd example: project publish
+// 2nd example: project publish utility
 import DashAttach from 'dashattach'
 import fs from 'fs'
 import readline from 'node:readline'
@@ -146,4 +146,22 @@ async function publishProject() {
 }
 
 publishProject()
+// 3rd example: library for publish project
+import DashAttach from 'dashattach'
+import fs from 'fs'
+
+async function publishProject(name, description, filePath, trumbnailFilePath) {
+    const buffer = fs.readFileSync(filePath)
+    const buffer2 = fs.readFileSync(trumbnailFilePath)
+    const project = await DashAttach.actions.uploadProject(buffer, 'project.dbp', name, description)
+    const projectId = project?.projectId || null
+    if (!projectId === null) {
+        const trumbnail = await DashAttach.actions.uploadTrumbnail(projectId, buffer2, 'image.png')
+    } else {
+        return 0
+    }
+    return projectId
+}
+
+export default publishProject
 ```
