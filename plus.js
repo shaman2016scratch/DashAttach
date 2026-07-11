@@ -1,3 +1,5 @@
+// version: 0.1.0
+
 import DashAttach from './index.js';
 
 const DashAttachPlus = {
