@@ -62,8 +62,9 @@ const info = {
             const result = await getDashUser(user)
             return result?.profile?.gradient || null
         },
-        getAvatar: (user) => {
-            return `https://${DashAttachData.apiUrl}/users/avatars/${user}`
+        getAvatar: async (user) => {
+            const result = await getDashUser(user)
+            return `https://${DashAttachData.apiUrl}/users/avatars/${result?.id}`
         },
         stats: {
             projects: async (user) => {
@@ -81,6 +82,14 @@ const info = {
             unreadMessages: async (user) => {
                 const result = await getDashUser(user)
                 return result?.profile?.unreadMessages || 0
+            }
+        },
+        buffer: {
+            avatar: async (user) => {
+                const result = await getDashUser(user)
+                const req = await fetch(`https://${DashAttachData.apiUrl}/users/avatars/${result?.id}`)
+                const img = await req.buffer()
+                return img
             }
         }
     },
@@ -115,7 +124,19 @@ const info = {
             }
         },
         getFileURL: (project) => {
-            return `https://${DashAttachData.apiUrl}/get-projects/${project}`
+            return `https://${DashAttachData.apiUrl}/get-project/${project}`
+        },
+        buffer: {
+            dbp: async (project) => {
+                const req = await fetch(`https://${DashAttachData.apiUrl}/get-project/${project}`)
+                const dbp = await req.buffer()
+                return dbp
+            },
+            trumbnail: async (project) => {
+                const req = await fetch(`https://${DashAttachData.apiUrl}/projects/trumbnails/${project}`)
+                const img = await req.buffer()
+                return img
+            }
         }
     }
 }

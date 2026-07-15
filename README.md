@@ -63,6 +63,7 @@ await DashAttach.info.users.stats.projects(user) // get count of all projects of
 await DashAttach.info.users.stats.followers(user) // get count of all followers of user. Return: number
 await DashAttach.info.users.stats.following(user) // get count of all following of user. Return: number
 await DashAttach.info.users.stats.unreadMessages(user) // get count of unread messages of user. Return: number
+await DashAttach.info.users.buffer.avatar(user) // get buffer of avatar of user. Return: buffer
 /*
     Argument types:
     id = get info by id
@@ -82,6 +83,8 @@ DashAttach.info.projects.getTrumbnail(id) // get trumbnail url of project. Retur
 await DashAttach.info.projects.stats.fires(id) // get fires of project. Return: number
 await DashAttach.info.projects.stats.views(id) // get views of project. Return: number
 DashAttach.info.projects.getFileURL(id) // get file url of project. Return: string
+await DashAttach.info.projects.buffer.dbp(user) // get buffer of project file. Return: buffer
+await DashAttach.info.projects.buffer.trumbnail(user) // get buffer of trumbnail of project. Return: buffer
 ```
 ### Actions
 ```JavaScript
@@ -114,18 +117,14 @@ CORS Dash API: localhost:3000 and dashblocks.org.
 ```JavaScript
 // 1st example: Login utility
 import DashAttach from 'dashattach'
-import readline from 'node:readline'
+import { DashAttachInput2 } from 'dashattach/input'
 
-const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout,
-});
-
-rl.question(`What's your username/id?`, user => {
-    rl.question(`What's your password?`, password => {
-        DashAttach.auth.login(user, password)
-    });
-});
+async function start() {
+    const user = await DashAttachInput2("What's your username/id")
+    const password = await DashAttachInput2("What's your password?")
+    await DashAttach.auth.login(user, password)
+}
+start()
 // 2nd example: project publish utility
 import DashAttach from 'dashattach'
 import fs from 'fs'
