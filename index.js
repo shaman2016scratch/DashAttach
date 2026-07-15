@@ -23,6 +23,12 @@ const DashAttach = {
             const result = await (await fetch(`https://${DashAttachData.apiUrl}/search/projects?q=${q}`)).json()
             return result.total
         }
+    },
+    setProxy: (url) => {
+        let cacheDashAttachData = DashAttachData
+        cacheDashAttachData.apiUrl = url
+        cacheDashAttachData.useProxy = true
+        setDashAttachData(cacheDashAttachData)
     }
 }
 

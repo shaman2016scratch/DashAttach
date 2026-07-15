@@ -6,9 +6,6 @@ const auth = {
     myInfo: {
         isLogin: async () => {
             const isLoginDash = await checkIsLogin()
-            let DashAttachDataCash = DashAttachData
-            DashAttachDataCash.isLogin = isLoginDash
-            setDashAttachData(DashAttachDataCash)
             return isLoginDash
         },
         getMyId: async () => {

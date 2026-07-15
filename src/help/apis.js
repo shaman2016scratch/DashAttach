@@ -8,6 +8,10 @@ const checkIsLogin = async () => {
     let returN = false
     if (res.ok) {
         returN = true
+        let cacheDashAttachData = DashAttachData
+        cacheDashAttachData.isLogin = true
+        cacheDashAttachData.session.user = res?.user?.id
+        setDashAttachData(cacheDashAttachData)
     }
     return returN
 }
@@ -25,8 +29,10 @@ const singinDash = async (userId, password) => {
         })
     })
     const res = await req.json()
-    let DashAttachDataCash = DashAttachData
-    DashAttachDataCash.isLogin = true
+    let cacheDashAttachData = DashAttachData
+    cacheDashAttachData.isLogin = true
+    cacheDashAttachData.session.user = userId
+    cacheDashAttachData.session.password = password
     setDashAttachData(DashAttachDataCash)
     return res
 }
@@ -36,6 +42,12 @@ const getSessionDash = async () => {
         credentials: "include"
     })
     const res = await req.json()
+    if (req.ok) {
+        let cacheDashAttachData = DashAttachData
+        cacheDashAttachData.isLogin = true
+        cacheDashAttachData.session.user = res?.user?.id
+        setDashAttachData(cacheDashAttachData)
+    }
     return res
 }
 

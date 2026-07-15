@@ -6,7 +6,7 @@ Last version: [0.3.3](https://www.npmjs.com/package/dashattach/v/0.3.3)
 npm: https://www.npmjs.com/package/dashattach
 
 ## Documentation
-**Warning: no use in sites.**
+**Warning: no use in sites if not is use proxy.**
 ### Install and import
 For last version:
 ```bash
@@ -104,11 +104,12 @@ await DashAttach.actions.uploadProject(buffer, filename, name, description) // u
 ### Other
 ```JavaScript
 await DashAttach.featuredProjects(offset, limit) // get featured projects. Return: array. Max limit: 40
-await DashAttach.seatch.projects(q, offset, limit) // search projects in Dash. Return: array. Max limit: 40
-await DashAttach.seatch.projectsCount(q) // count of all projects of search projects. Return: number.
+await DashAttach.search.projects(q, offset, limit) // search projects in Dash. Return: array. Max limit: 40
+await DashAttach.search.projectsCount(q) // count of all projects of search projects. Return: number.
+await DashAttach.setProxy(url) // set proxy for api. CREATED TO WORK AROUND CORS FOR BROWSER USE.
 ```
 ### CORS
-CORS Dash API: localhost:3000 and dashblocks.org. Please, no use DashAttach in your web sites.
+CORS Dash API: localhost:3000 and dashblocks.org.
 ### Examples
 ```JavaScript
 // 1st example: Login utility
