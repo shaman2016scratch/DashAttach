@@ -6,10 +6,7 @@
   "bugs": {
     "url": "https://github.com/shaman2016scratch/DashAttach/issues"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/shaman2016scratch/DashAttach.git"
-  },
+  "repository": "git+https://github.com/shaman2016scratch/DashAttach.git",
   "license": "GPL-3.0",
   "author": "polzovatel_8787",
   "type": "module",
@@ -20,5 +17,6 @@
   },
   "dependencies": {
     "form-data": "^4.0.0"
-  }
+  },
+  "private": false
 }
