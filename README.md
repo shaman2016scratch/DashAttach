@@ -83,8 +83,8 @@ DashAttach.info.projects.getTrumbnail(id) // get trumbnail url of project. Retur
 await DashAttach.info.projects.stats.fires(id) // get fires of project. Return: number
 await DashAttach.info.projects.stats.views(id) // get views of project. Return: number
 DashAttach.info.projects.getFileURL(id) // get file url of project. Return: string
-await DashAttach.info.projects.buffer.dbp(user) // get buffer of project file. Return: buffer
-await DashAttach.info.projects.buffer.trumbnail(user) // get buffer of trumbnail of project. Return: buffer
+await DashAttach.info.projects.buffer.dbp(id) // get buffer of project file. Return: buffer
+await DashAttach.info.projects.buffer.trumbnail(id) // get buffer of trumbnail of project. Return: buffer
 ```
 ### Actions
 ```JavaScript
@@ -103,6 +103,12 @@ await DashAttach.actions.uploadTrumbnail(id, buffer, filename) // upload trumbna
 await DashAttach.actions.viewProject(id) // add view project
 await DashAttach.actions.markAllMessagesAsRead(id) // mark all messages as read
 await DashAttach.actions.uploadProject(buffer, filename, name, description) // upload project
+```
+### DBP (DashBlocks Project) files
+Note: files .dbp is .zip files
+```JavaScript
+await DashAttach.dbp.init(id) // JSZip zip of Dash project. Return: JSZip zip
+await DashAttach.dbp.load(buffer) // JSZip zip of Dash project buffer (from await DashAttach.info.projects.buffer.dbp() and other). Return: JSZip zip
 ```
 ### Other
 ```JavaScript
