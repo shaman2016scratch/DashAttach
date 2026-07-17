@@ -1,4 +1,4 @@
-import JSZip from 'jszip'
+import Zip from "../help/zip.js"
 
 const dbp = {}
 
