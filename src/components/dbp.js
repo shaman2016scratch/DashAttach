@@ -1,5 +1,7 @@
 import Zip from "../help/zip.js"
 
-const dbp = {}
+const dbp = {
+    init: () => {}
+}
 
 export default dbp
