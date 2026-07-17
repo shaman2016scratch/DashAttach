@@ -17,11 +17,11 @@ const DashAttachPlus = {
             return returN
         },
         dbp: async (id) => {
-            const buffer = await (await fetch(await DashAttach.info.projects.getFileURL(id))).buffer()
+            const buffer = Buffer.from(await (await fetch(await DashAttach.info.projects.getFileURL(id))).arrayBuffer())
             return buffer
         },
         trumbnail: async (id) => {
-            const buffer = await (await fetch(await DashAttach.info.projects.getTrumbnail(id))).buffer()
+            const buffer = Buffer.from(await (await fetch(await DashAttach.info.projects.getTrumbnail(id))).arrayBuffer())
             return buffer
         }
     },
@@ -42,7 +42,7 @@ const DashAttachPlus = {
             return returN
         },
         avatar: async (id) => {
-            const buffer = await (await fetch(await DashAttach.info.users.getAvatar(id))).buffer()
+            const buffer = Buffer.from(await (await fetch(await DashAttach.info.users.getAvatar(id))).arrayBuffer())
             return buffer
         }
     }

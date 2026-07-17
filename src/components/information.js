@@ -88,7 +88,9 @@ const info = {
             avatar: async (user) => {
                 const result = await getDashUser(user)
                 const req = await fetch(`https://${DashAttachData.apiUrl}/users/avatars/${result?.id}`)
-                const img = await req.buffer()
+                const imgAR = await req.arrayBuffer()
+                const imgBuffer = Buffer.from(imgAR)
+                const img = imgBuffer.toString("base64")
                 return img
             }
         }
@@ -129,12 +131,16 @@ const info = {
         buffer: {
             dbp: async (project) => {
                 const req = await fetch(`https://${DashAttachData.apiUrl}/get-project/${project}`)
-                const dbp = await req.buffer()
+                const dbpAR = await req.arrayBuffer()
+                const dbpBuffer = Buffer.from(dbpAR)
+                const dbp = dbpBuffer.toString("base64")
                 return dbp
             },
             trumbnail: async (project) => {
                 const req = await fetch(`https://${DashAttachData.apiUrl}/projects/trumbnails/${project}`)
-                const img = await req.buffer()
+                const imgAR = await req.arrayBuffer()
+                const imgBuffer = Buffer.from(imgAR)
+                const img = imgBuffer.toString("base64")
                 return img
             }
         }
