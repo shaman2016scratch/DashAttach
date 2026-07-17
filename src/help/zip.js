@@ -4,7 +4,7 @@ const generateZip = () => {
     return new JSZip()
 }
 
-const loadZipFromURL = (zip, url) => {
+const loadZipFromURL = async (zip, url) => {
     const req = await fetch(url)
     const zipAR = await req.arrayBuffer()
     const zipBuffer = Buffer.from(zipAR)
@@ -23,12 +23,23 @@ const loadZipFromBuffer = (zip, zipBuffer) => {
     return zip
 }
 
+const getFileInZip = (zip, file) => {
+    return zip.file(file)
+}
+
+const setFileInZip = (zip, file, value, options) => {
+    if (options) zip.file(file, value, options)
+    if (!options) zip.file(file, value)
+}
+
 const Zip = {
     generate: generateZip,
     loadFromURL: loadZipFromURL,
     loadFromBase64: loadZipFromBase64,
-    loadFromBuffer: loadZipFromBuffer
+    loadFromBuffer: loadZipFromBuffer,
+    getFile: getFileInZip,
+    setFile: setFileInZip
 }
 
 export default Zip
-export { generateZip, loadZipFromURL, loadZipFromBase64, loadZipFromBuffer }
+export { generateZip, loadZipFromURL, loadZipFromBase64, loadZipFromBuffer, getFileInZip, setFileInZip }
