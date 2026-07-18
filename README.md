@@ -108,7 +108,7 @@ await DashAttach.actions.uploadProject(buffer, filename, name, description) // u
 Note: files .dbp is .zip files
 ```JavaScript
 await DashAttach.dbp.init(id) // JSZip zip of Dash project. Return: JSZip
-await DashAttach.dbp.load(buffer) // JSZip zip of Dash project buffer (from await DashAttach.info.projects.buffer.dbp() and other). Return: JSZip
+DashAttach.dbp.load(buffer) // JSZip zip of Dash project buffer (from await DashAttach.info.projects.buffer.dbp() and other). Return: JSZip
 DashAttach.dbp.json(dbp) // get project.json of dash project. Return: object
 DashAttach.dbp.extensionStorage.all(dbp) // get extension storage (storage for extension) of this project. Return: object
 DashAttach.dbp.extensionStorage.getExtension(dbp, extensionId) // get storage of extension. Return: object
@@ -130,6 +130,17 @@ await DashAttach.dbp.target.getByObject(dbp, index) // get class 'Tagret' by tar
     dbp - JSZip of Dash project
     extensionId - id of extension
 */
+```
+#### Class 'Target'
+```JavaScript
+// Getting
+const dbp = await DashAttach.dbp.init(555)
+const target = DashAttach.dbp.target.getByIndex(dbp, 0)
+// Using
+target.isStage
+target.name
+tagret.vars
+target.lists
 ```
 ### Other
 ```JavaScript
@@ -253,4 +264,66 @@ await DashAttachPlus.users.avatar(user) /*
     Input: username/id
     Return: buffer
 */
+```
+### For developers
+#### Help for components
+```JavaScript
+// Importing
+import { checkIsLogin, singinDash, getSessionDash, getDashUser, getDashProject, getDashUserProjects, getDashUserFollowers, getDashUserFollowing, getSessionMessagesDash, getSessionActivityDash, logoutDash } from 'dashattach/src/help/apis.js'
+import { DashAttachData, setDashAttachData } from 'dashattach/src/help/data.js'
+import Zip, { generateZip, loadZipFromURL, loadZipFromBase64, loadZipFromBuffer, getFileInZip, setFileInZip } from 'dashattach/src/help/zip.js'
+import SB3, { Target, Stage } from 'dashattach/src/help/sb3.js'
+// Usage
+// 1. Zip
+Zip /* Return: Object {
+    generate: func,
+    loadFromURL: func,
+    loadFromBase64: func,
+    loadFromBuffer: func,
+    getFile: func,
+    setFile: func
+} */
+generateZip() // generate zip. Return: JSZip
+loadZipFromURL(zip, url) // add files of zip from URL to zip.
+loadZipFromBase64(zip, base64) // add files of zip from base64 to zip.
+loadZipFromBuffer(zip, buffer) // add files of zip from buffer to zip.
+getFileInZip(zip, file) // Return: ?, for get string: getFileInZip(zip, file).async("string")
+setFileInZip(zip, file, value, options) // https://stuk.github.io/jszip/documentation/api_jszip/file_data.html
+// 2. sb3
+new SB3(project) /* Class.
+    sb3.targets: array
+    sb3.extensionStorage: object. Olny get
+    sb3.target(index): get target by index. Return: Object
+    await sb3.targetObject(): get target object (Stage:object,sprite1:object,...)
+*/
+new Target(project, index) // Class.
+new Stage(project) /* Class.
+    stage.vars: variables of stage
+    stage.lists: lists of stage
+*/
+```
+#### Tests
+```Bash
+# Installing
+git clone https://github.com/shaman2016scratch/DashAttach.git
+cd ./DashAttach
+# or
+npm i dashattach # or yarn add dashattach
+cd ./node_modules/dashattach
+# Using
+npm test # main test
+npm run testDev # developer test
+```
+#### Inputs
+```JavaScript
+// Import
+import { DashAttachInput, DashAttachInput2, DashAttachInput3 } from 'dashattach/input'
+import { stdin as input, stdout as output } from 'node:process' // for first and last
+// Using 1
+await DashAttachInput('request', input, output)
+// Using 2
+await DashAttachInput2('request')
+// Using 3
+const rl = readline.createInterface({ input: input, output: output })
+await DashAttachInput3('request', rl)
 ```

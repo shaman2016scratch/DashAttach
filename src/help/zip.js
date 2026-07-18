@@ -10,7 +10,6 @@ const loadZipFromURL = async (zip, url) => {
     const zipBuffer = Buffer.from(zipAR)
     const zipBase64 = zipBuffer.toString("base64")
     zip.loadAsync(zipBase64, { base64: true })
-    return zip
 }
 
 const loadZipFromBase64 = (zip, base64) => {
@@ -20,7 +19,6 @@ const loadZipFromBase64 = (zip, base64) => {
 const loadZipFromBuffer = (zip, zipBuffer) => {
     const zipBase64 = zipBuffer.toString("base64")
     zip.loadAsync(zipBase64, { base64: true })
-    return zip
 }
 
 const getFileInZip = (zip, file) => {
