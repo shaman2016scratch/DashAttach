@@ -1,3 +1,4 @@
+import SB3, { Target, Stage } from "../help/sb3.js"
 import Zip from "../help/zip.js"
 import info from "./information.js"
 
@@ -47,11 +48,13 @@ const dbp = {
     stage: {
         vars: (dbp) => {
             const project = JSON.parse(Zip.getFile(dbp, "project.json").async("string"))
-            return project.targets[0].variables
+            const target = new Stage(project)
+            return target.vars
         },
         lists: (dbp) => {
             const project = JSON.parse(Zip.getFile(dbp, "project.json").async("string"))
-            return project.targets[0].lists
+            const target = new Stage(project)
+            return target.lists
         }
     }
 }
