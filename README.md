@@ -107,19 +107,21 @@ await DashAttach.actions.uploadProject(buffer, filename, name, description) // u
 ### DBP (DashBlocks Project) files
 Note: files .dbp is .zip files
 ```JavaScript
-await DashAttach.dbp.init(id) // JSZip zip of Dash project. Return: JSZip zip
-await DashAttach.dbp.load(buffer) // JSZip zip of Dash project buffer (from await DashAttach.info.projects.buffer.dbp() and other). Return: JSZip zip
+await DashAttach.dbp.init(id) // JSZip zip of Dash project. Return: JSZip
+await DashAttach.dbp.load(buffer) // JSZip zip of Dash project buffer (from await DashAttach.info.projects.buffer.dbp() and other). Return: JSZip
 await DashAttach.dbp.json(dbp) // get project.json of dash project. Return: object
 await DashAttach.dbp.extensionStorage.all(dbp) // get extension storage (storage for extension) of this project. Return: object
 await DashAttach.dbp.extensionStorage.getExtension(dbp, extensionId) // get storage of extension. Return: object
 await DashAttach.dbp.extensionStorage.get(dbp, extensionId, key) // get key in storage of extension. Return: Any
 await DashAttach.dbp.extensionStorage.set(dbp, extensionId, key, value) // set key in storage of extension.
 await DashAttach.dbp.extensionStorage.setExtension(dbp, extensionId, value) // set storage of extension. typeof value === 'object'
+await DashAttach.dbp.stage.vars(dbp) // get list of vars of stage.
+await DashAttach.dbp.stage.lists(dbp) // get list of lists of stage.
 /*
     Arguments:
     id - number of project id
     buffer - buffer
-    dbp - JSZip zip of Dash project
+    dbp - JSZip of Dash project
     extensionId - id of extension
 */
 ```

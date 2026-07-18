@@ -43,6 +43,16 @@ const dbp = {
                 console.error("type of value is not an object")
             }
         }
+    },
+    stage: {
+        vars: (dbp) => {
+            const project = JSON.parse(Zip.getFile(dbp, "project.json").async("string"))
+            return project.targets[0].variables
+        },
+        lists: (dbp) => {
+            const project = JSON.parse(Zip.getFile(dbp, "project.json").async("string"))
+            return project.targets[0].lists
+        }
     }
 }
 
