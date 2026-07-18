@@ -56,6 +56,44 @@ const dbp = {
             const target = new Stage(project)
             return target.lists
         }
+    },
+    targets: {
+        data: async (dbp) => {
+            const project = JSON.parse(Zip.getFile(dbp, "project.json").async("string"))
+            const sb3 = new SB3(project)
+            const targets = await sb3.targetObject()
+            return targets
+        },
+        list: async (dbp) => {
+            const project = JSON.parse(Zip.getFile(dbp, "project.json").async("string"))
+            const sb3 = new SB3(project)
+            const targets = await sb3.targetObject()
+            const keys = Object.keys()
+            return keys
+        },
+        listData: (dbp) => {
+            const project = JSON.parse(Zip.getFile(dbp, "project.json").async("string"))
+            const sb3 = new SB3(project)
+            return sb3.targets
+        }
+    },
+    target: {
+        getByIndex: (dbp, index) => {
+            const project = JSON.parse(Zip.getFile(dbp, "project.json").async("string"))
+            return new Target(project, index)
+        },
+        getByName: async (dbp, name) => {
+            const project = JSON.parse(Zip.getFile(dbp, "project.json").async("string"))
+            const sb3 = new SB3(project)
+            const targets = await sb3.targetObject()
+            return new Target(project, sb3.target(targets[name].indexNum))
+        },
+        getByObject: async (dbp, obj) => {
+            const project = JSON.parse(Zip.getFile(dbp, "project.json").async("string"))
+            const sb3 = new SB3(project)
+            const targets = await sb3.targetObject()
+            return new Target(project, sb3.target(targets[obj.name].indexNum))
+        }
     }
 }
 

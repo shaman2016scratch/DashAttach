@@ -11,6 +11,16 @@ class SB3 {
     target (index) {
         return this.targets[index]
     }
+
+    targetObject () {
+        let obj
+        for (let i = 0; i < this.targets.length; i++) {
+            const targetData = this.target(i)
+            obj[targetData.name] = targetData
+            obj[targetData.name].indexNum = Object.keys(obj).length
+        }
+        return obj
+    }
 }
 
 class Target {
@@ -18,23 +28,23 @@ class Target {
         this.#project = project
         this.#index = number
         this.#projectData = new SB3(this.#project)
-        this.targets = this.#projectData.targets
+        this.#my = this.#projectData.target(this.#index)
     }
 
     get isStage () {
-        return this.targets[this.#index].isStage
+        return this.#my.isStage
     }
 
     get name () {
-        return this.targets[this.index].name
+        return this.#my.name
     }
 
     get vars () {
-        return this.targets[this.#index].variables
+        return this.#my.variables
     }
 
     get lists () {
-        return this.targets[this.#index].lists
+        return this.#my.lists
     }
 }
 
