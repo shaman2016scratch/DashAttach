@@ -141,8 +141,8 @@ target.isStage
 target.name
 tagret.vars
 target.lists
-target.varArr // object of variables (key = name, value = value)
-target.listArr // object of lists (key = name, value = value)
+target.varObj // object of variables (key = name, value = value)
+target.listObj // object of lists (key = name, value = value)
 ```
 ### Other
 ```JavaScript

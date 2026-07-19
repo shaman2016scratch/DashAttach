@@ -59,13 +59,13 @@ const dbp = {
         varObj: async dbp => {
             const project = JSON.parse(Zip.getFile(dbp, "project.json").async("string"))
             const target = new Stage(project)
-            const arr = await target.varArr()
+            const arr = await target.varObj()
             return arr
         },
         listObj: async dbp => {
             const project = JSON.parse(Zip.getFile(dbp, "project.json").async("string"))
             const target = new Stage(project)
-            const arr = await target.listArr()
+            const arr = await target.listObj()
             return arr
         }
     },

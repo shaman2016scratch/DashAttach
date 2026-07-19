@@ -59,7 +59,7 @@ class Target {
         return this.#my.lists
     }
 
-    varArr () {
+    varObj () {
         let arr = {}
         const vars = this.#my.variables
         const keys = Object.keys(vars)
@@ -76,7 +76,7 @@ class Target {
         return arr
     }
 
-    listArr () {
+    listObj () {
         let arr = {}
         const vars = this.#my.lists
         const keys = Object.keys(vars)
@@ -103,13 +103,13 @@ class Stage {
         return this.#stage.lists
     }
 
-    async varArr () {
-        const arr = await this.#stage.varArr()
+    async varObj () {
+        const arr = await this.#stage.varObj()
         return arr
     }
 
-    async listArr () {
-        const arr = await this.#stage.listArr()
+    async listObj () {
+        const arr = await this.#stage.listObj()
         return arr
     }
 }
