@@ -123,6 +123,13 @@ await DashAttach.dbp.targets.listData(dbp) // get list of values of DashAttach.d
 DashAttach.dbp.target.getByIndex(dbp, index) // get class 'Tagret' by target index (getting by key 'indexNum' in data of target (only in dbp.targets.data)). Return: Target
 await DashAttach.dbp.target.getByName(dbp, name) // get class 'Tagret' by target name (getting by key 'name' in data of target). Return: Target
 await DashAttach.dbp.target.getByObject(dbp, index) // get class 'Tagret' by target object (object in dbp.targets.data). Return: Target
+DashAttach.dbp.meta.vm() // get vm version
+DashAttach.dbp.meta.agent() // get user agent of last project editor
+DashAttach.dbp.meta.platform() /* Get Platform. Return: Object {
+    name: string (example: Dash),
+    url: string (example: 'https://dashblocks.org')
+}
+*/
 /*
     Arguments:
     id - number of project id
@@ -296,12 +303,21 @@ new SB3(project) /* Class.
     sb3.targets: array
     sb3.extensionStorage: object. Olny get
     sb3.target(index): get target by index. Return: Object
-    await sb3.targetObject(): get target object (Stage:object,sprite1:object,...)
+    await sb3.targetObject(): get target object (Stage:object,sprite1:object,...),
+    sb3.VM: vm version,
+    sb3.UserAgent: user-agent of last project editor
+    sb3.platform: platform of project. Return: Object {
+        name: string,
+        url: string
+    }
 */
 new Target(project, index) // Class.
-new Stage(project) /* Class.
+new Stage(project) /* Class {
     stage.vars: variables of stage
     stage.lists: lists of stage
+    stage.varObj: object of vars
+    stage.listObj: object of lists
+}
 */
 ```
 #### Tests
