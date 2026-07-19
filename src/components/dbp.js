@@ -46,32 +46,44 @@ const dbp = {
         }
     },
     stage: {
-        vars: (dbp) => {
+        vars: dbp => {
             const project = JSON.parse(Zip.getFile(dbp, "project.json").async("string"))
             const target = new Stage(project)
             return target.vars
         },
-        lists: (dbp) => {
+        lists: dbp => {
             const project = JSON.parse(Zip.getFile(dbp, "project.json").async("string"))
             const target = new Stage(project)
             return target.lists
+        },
+        varObj: async dbp => {
+            const project = JSON.parse(Zip.getFile(dbp, "project.json").async("string"))
+            const target = new Stage(project)
+            const arr = await target.varArr()
+            return arr
+        },
+        listObj: async dbp => {
+            const project = JSON.parse(Zip.getFile(dbp, "project.json").async("string"))
+            const target = new Stage(project)
+            const arr = await target.listArr()
+            return arr
         }
     },
     targets: {
-        data: async (dbp) => {
+        data: async dbp => {
             const project = JSON.parse(Zip.getFile(dbp, "project.json").async("string"))
             const sb3 = new SB3(project)
             const targets = await sb3.targetObject()
             return targets
         },
-        list: async (dbp) => {
+        list: async dbp => {
             const project = JSON.parse(Zip.getFile(dbp, "project.json").async("string"))
             const sb3 = new SB3(project)
             const targets = await sb3.targetObject()
             const keys = Object.keys()
             return keys
         },
-        listData: (dbp) => {
+        listData: dbp => {
             const project = JSON.parse(Zip.getFile(dbp, "project.json").async("string"))
             const sb3 = new SB3(project)
             return sb3.targets
@@ -93,6 +105,23 @@ const dbp = {
             const sb3 = new SB3(project)
             const targets = await sb3.targetObject()
             return new Target(project, sb3.target(targets[obj.name].indexNum))
+        }
+    },
+    meta: {
+        vm: async dbp => {
+            const project = JSON.parse(Zip.getFile(dbp, "project.json").async("string"))
+            const sb3 = new SB3(project)
+            return sb3.VM
+        },
+        agent: async dbp => {
+            const project = JSON.parse(Zip.getFile(dbp, "project.json").async("string"))
+            const sb3 = new SB3(project)
+            return sb3.UserAgent
+        },
+        platform: async dbp => {
+            const project = JSON.parse(Zip.getFile(dbp, "project.json").async("string"))
+            const sb3 = new SB3(project)
+            return sb3.Platform
         }
     }
 }

@@ -13,13 +13,25 @@ class SB3 {
     }
 
     targetObject () {
-        let obj
+        let obj = {}
         for (let i = 0; i < this.targets.length; i++) {
             const targetData = this.target(i)
             obj[targetData.name] = targetData
             obj[targetData.name].indexNum = Object.keys(obj).length
         }
         return obj
+    }
+
+    get VM () {
+        return this.#project.meta.vm
+    }
+
+    get UserAgent () {
+        return this.#project.meta.agent
+    }
+
+    get Platform () {
+        return this.#project.meta.platform
     }
 }
 
@@ -46,6 +58,36 @@ class Target {
     get lists () {
         return this.#my.lists
     }
+
+    varArr () {
+        let arr = {}
+        const vars = this.#my.variables
+        const keys = Object.keys(vars)
+        for (let i = 0; i < keys.length; i++) {
+            const varData = vars[keys[i]]
+            if (typeof varData[1] !== 'object') {
+                obj[varData[0]] = varData[1]
+            } else {
+                obj[varData[0]] = varData[1].serialized
+            }
+            obj[varData[0]].push(Object.keys(obj).length)
+            obj[varData[0]].push(keys[i])
+        }
+        return arr
+    }
+
+    listArr () {
+        let arr = {}
+        const vars = this.#my.lists
+        const keys = Object.keys(vars)
+        for (let i = 0; i < keys.length; i++) {
+            const varData = vars[keys[i]]
+            obj[varData[0]] = varData[1]
+            obj[varData[0]].push(Object.keys(obj).length)
+            obj[varData[0]].push(keys[i])
+        }
+        return arr
+    }
 }
 
 class Stage {
@@ -59,6 +101,16 @@ class Stage {
 
     get lists () {
         return this.#stage.lists
+    }
+
+    async varArr () {
+        const arr = await this.#stage.varArr()
+        return arr
+    }
+
+    async listArr () {
+        const arr = await this.#stage.listArr()
+        return arr
     }
 }
 
