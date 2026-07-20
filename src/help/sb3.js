@@ -1,11 +1,11 @@
 class SB3 {
     constructor (project) {
-        this.#project = project
-        this.targets = this.#project.targets
+        this.project = project
+        this.targets = this.project.targets
     }
 
     get extensionStorage () {
-        return this.#project.extensionStorage
+        return this.project.extensionStorage
     }
 
     target (index) {
@@ -23,45 +23,45 @@ class SB3 {
     }
 
     get VM () {
-        return this.#project.meta.vm
+        return this.project.meta.vm
     }
 
     get UserAgent () {
-        return this.#project.meta.agent
+        return this.project.meta.agent
     }
 
     get Platform () {
-        return this.#project.meta.platform
+        return this.project.meta.platform
     }
 }
 
 class Target {
     constructor (project, number) {
-        this.#project = project
-        this.#index = number
-        this.#projectData = new SB3(this.#project)
-        this.#my = this.#projectData.target(this.#index)
+        this.project = project
+        this.index = number
+        this.projectData = new SB3(this.project)
+        this.my = this.projectData.target(this.index)
     }
 
     get isStage () {
-        return this.#my.isStage
+        return this.my.isStage
     }
 
     get name () {
-        return this.#my.name
+        return this.my.name
     }
 
     get vars () {
-        return this.#my.variables
+        return this.my.variables
     }
 
     get lists () {
-        return this.#my.lists
+        return this.my.lists
     }
 
     varObj () {
         let arr = {}
-        const vars = this.#my.variables
+        const vars = this.my.variables
         const keys = Object.keys(vars)
         for (let i = 0; i < keys.length; i++) {
             const varData = vars[keys[i]]
@@ -78,7 +78,7 @@ class Target {
 
     listObj () {
         let arr = {}
-        const vars = this.#my.lists
+        const vars = this.my.lists
         const keys = Object.keys(vars)
         for (let i = 0; i < keys.length; i++) {
             const varData = vars[keys[i]]
@@ -92,24 +92,24 @@ class Target {
 
 class Stage {
     constructor (project) {
-        this.#stage = new Target(project, 0)
+        this.stage = new Target(project, 0)
     }
 
     get vars () {
-        return this.#stage.vars
+        return this.stage.vars
     }
 
     get lists () {
-        return this.#stage.lists
+        return this.stage.lists
     }
 
     async varObj () {
-        const arr = await this.#stage.varObj()
+        const arr = await this.stage.varObj()
         return arr
     }
 
     async listObj () {
-        const arr = await this.#stage.listObj()
+        const arr = await this.stage.listObj()
         return arr
     }
 }
