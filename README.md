@@ -64,7 +64,7 @@ await DashAttach.info.users.stats.followers(user) // get count of all followers 
 await DashAttach.info.users.stats.following(user) // get count of all following of user. Return: number
 await DashAttach.info.users.stats.unreadMessages(user) // get count of unread messages of user. Return: number
 await DashAttach.info.users.buffer.avatar(user) // get buffer of avatar of user. Return: buffer
-await DashAttach.info.users.getActions(user) // get actions of user. Return: array
+await DashAttach.info.users.getActions(user, offset, limit) // get actions of user. Return: array
 /*
     Argument types:
     id = get info by id
