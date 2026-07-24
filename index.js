@@ -31,7 +31,11 @@ const DashAttach = {
         cacheDashAttachData.useProxy = true
         setDashAttachData(cacheDashAttachData)
     },
-    dbp
+    dbp,
+    library: {
+        version: '0.4.0',
+        name: 'DashAttach'
+    }
 }
 
 export default DashAttach

@@ -1,7 +1,7 @@
 # DashAttach
 Dashattach - library for interacting with the Dash API (Dash/Dashlocks - scratch mod, like turbowarp. dashblocks.org).
 
-Last version: [0.3.4](https://www.npmjs.com/package/dashattach/v/0.3.4)
+Last version: [0.4.0](https://www.npmjs.com/package/dashattach/v/0.4.0)
 
 npm: https://www.npmjs.com/package/dashattach
 
@@ -16,11 +16,14 @@ For other version:
 ```bash
 npm install dashattach@version
 # example:
-npm install dashattach@0.2.0
+npm install dashattach@0.3.4
 ```
 ```JavaScript (ESM)
 import DashAttach from "dashattach"
 ```
+### Getting info of library
+DashAttach.library.version // version of library.
+DashAttach.library.name // name of library...
 ### Session
 ```JavaScript
 await DashAttach.auth.login(user, password) // login
