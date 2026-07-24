@@ -105,4 +105,12 @@ const logoutDash = async () => {
     return res
 }
 
-export { checkIsLogin, singinDash, getSessionDash, getDashUser, getDashProject, getDashUserProjects, getDashUserFollowers, getDashUserFollowing, getSessionMessagesDash, getSessionActivityDash, logoutDash }
+const getDashUserActions = async (user, offset, limit) => {
+    const req = await fetch(`https://${DashAttachData.apiUrl}/users/${user}/actions?offset=${offset}&limit=${limit}`, {
+        credentials: "include"
+    })
+    const res = await req.json()
+    return res
+}
+
+export { checkIsLogin, singinDash, getSessionDash, getDashUser, getDashProject, getDashUserProjects, getDashUserFollowers, getDashUserFollowing, getSessionMessagesDash, getSessionActivityDash, logoutDash, getDashUserActions }

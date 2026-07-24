@@ -1,4 +1,4 @@
-import { getDashUser, getDashProject, getDashUserProjects, getDashUserFollowers, getDashUserFollowing } from "../help/apis.js"
+import { getDashUser, getDashProject, getDashUserProjects, getDashUserFollowers, getDashUserFollowing, getDashUserActions } from "../help/apis.js"
 import { DashAttachData } from "../help/data.js"
 
 const info = {
@@ -92,6 +92,10 @@ const info = {
                 const img = Buffer.from(imgAR)
                 return img
             }
+        },
+        getActions: async (user, offset, limit) => {
+            const result = await getDashUserActions(user, offset, limit)
+            return result?.actions || []
         }
     },
     projects: {

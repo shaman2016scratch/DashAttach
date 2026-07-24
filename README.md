@@ -58,12 +58,13 @@ await DashAttach.info.users.getProjects(user, offset, limit) // get projects of 
 await DashAttach.info.users.getFollowers(user, offset, limit) // get followers of user. Return: array. Max limit: 40
 await DashAttach.info.users.getFollowing(user, offset, limit) // get following of user. Return: array. Max limit: 40
 await DashAttach.info.users.getGradient(user) // get gradient (olny for Dash Supporters) of user. Return: unknown
-DashAttach.info.users.getAvatar(user) // get avatar url of user. Return: string
+await DashAttach.info.users.getAvatar(user) // get avatar url of user. Return: string
 await DashAttach.info.users.stats.projects(user) // get count of all projects of user. Return: number
 await DashAttach.info.users.stats.followers(user) // get count of all followers of user. Return: number
 await DashAttach.info.users.stats.following(user) // get count of all following of user. Return: number
 await DashAttach.info.users.stats.unreadMessages(user) // get count of unread messages of user. Return: number
 await DashAttach.info.users.buffer.avatar(user) // get buffer of avatar of user. Return: buffer
+await DashAttach.info.users.getActions(user) // get actions of user. Return: array
 /*
     Argument types:
     id = get info by id
@@ -79,7 +80,7 @@ await DashAttach.info.projects.getName(id) // get name of project. Return: strin
 await DashAttach.info.projects.getAuthorId(id) // get id of author of project. Return: number
 await DashAttach.info.projects.getAuthorUsername(id) // get username of author of project. Return: string
 await DashAttach.info.projects.getDescription(id) // get description of project. Return: string
-DashAttach.info.projects.getTrumbnail(id) // get trumbnail url of project. Return: string
+await DashAttach.info.projects.getTrumbnail(id) // get trumbnail url of project. Return: string
 await DashAttach.info.projects.stats.fires(id) // get fires of project. Return: number
 await DashAttach.info.projects.stats.views(id) // get views of project. Return: number
 DashAttach.info.projects.getFileURL(id) // get file url of project. Return: string
