@@ -35,6 +35,17 @@ const DashAttach = {
     library: {
         version: '0.4.0',
         name: 'DashAttach'
+    },
+    fetch: async (url, json) => {
+        if (json) {
+            const req = await fetch(`https://${DashAttachData.apiUrl}${url}`, json)
+            const res = await req.json()
+            return res
+        } else {
+            const req = await fetch(`https://${DashAttachData.apiUrl}${url}`)
+            const res = await req.json()
+            return res
+        }
     }
 }
 
