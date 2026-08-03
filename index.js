@@ -34,7 +34,9 @@ const DashAttach = {
     dbp,
     library: {
         version: '0.4.0',
-        name: 'DashAttach'
+        name: 'DashAttach',
+        author: 'polzovatel_8787',
+        license: 'GPL-3.0'
     },
     fetch: async (url, json) => {
         if (json) {
