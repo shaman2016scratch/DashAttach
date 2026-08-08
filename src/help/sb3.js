@@ -40,7 +40,7 @@ class Target {
         this.project = project
         this.index = number
         this.projectData = new SB3(this.project)
-        this.my = this.projectData.target(this.index)
+        this.my = this.projectData.target[this.index]
     }
 
     get isStage () {
@@ -60,7 +60,7 @@ class Target {
     }
 
     varObj () {
-        let arr = {}
+        let obj = {}
         const vars = this.my.variables
         const keys = Object.keys(vars)
         for (let i = 0; i < keys.length; i++) {
@@ -77,7 +77,7 @@ class Target {
     }
 
     listObj () {
-        let arr = {}
+        let obj = {}
         const vars = this.my.lists
         const keys = Object.keys(vars)
         for (let i = 0; i < keys.length; i++) {
