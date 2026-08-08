@@ -5,7 +5,8 @@ const DashAttachDataDefault = {
         user: 0,
         password: ""
     },
-    useProxy: false
+    useProxy: false,
+    originalApiUrl: "api.dashblocks.org"
 }
 
 let DashAttachData = DashAttachDataDefault
