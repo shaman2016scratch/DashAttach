@@ -38,17 +38,23 @@ const DashAttach = {
         author: 'polzovatel_8787',
         license: 'GPL-3.0'
     },
-    fetch: async (url, json) => {
+    fetch: async (path, json) => {
         if (json) {
-            const req = await fetch(`https://${DashAttachData.apiUrl}${url}`, json)
+            const req = await fetch(`https://${DashAttachData.apiUrl}${path}`, json)
             const res = await req.json()
             return res
         } else {
-            const req = await fetch(`https://${DashAttachData.apiUrl}${url}`)
+            const req = await fetch(`https://${DashAttachData.apiUrl}${path}`)
             const res = await req.json()
             return res
         }
-    }
+    },
+    removeProxy: (url) => {
+        let cacheDashAttachData = DashAttachData
+        cacheDashAttachData.apiUrl = DashAttachData.originalApiUrl
+        cacheDashAttachData.useProxy = false
+        setDashAttachData(cacheDashAttachData)
+    },
 }
 
 export default DashAttach
