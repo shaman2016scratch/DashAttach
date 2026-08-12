@@ -1,7 +1,7 @@
 # DashAttach
 Dashattach - library for interacting with the Dash API (Dash/Dashlocks - scratch mod, like turbowarp. dashblocks.org).
 
-Last version: [0.4.0](https://www.npmjs.com/package/dashattach/v/0.4.0)
+Last version: [0.4.1](https://www.npmjs.com/package/dashattach/v/0.4.1)
 
 npm: https://www.npmjs.com/package/dashattach
 
@@ -22,8 +22,12 @@ npm install dashattach@0.3.4
 import DashAttach from "dashattach"
 ```
 ### Getting info of library
+```JavaScript
 DashAttach.library.version // version of library.
 DashAttach.library.name // name of library...
+DashAttach.library.author // author of library
+DashAttach.library.license // license of library
+```
 ### Session
 ```JavaScript
 await DashAttach.auth.login(user, password) // login
@@ -160,7 +164,9 @@ target.listObj // object of lists (key = name, value = value)
 await DashAttach.featuredProjects(offset, limit) // get featured projects. Return: array. Max limit: 40
 await DashAttach.search.projects(q, offset, limit) // search projects in Dash. Return: array. Max limit: 40
 await DashAttach.search.projectsCount(q) // count of all projects of search projects. Return: number.
-await DashAttach.setProxy(url) // set proxy for api. CREATED TO WORK AROUND CORS FOR BROWSER USE.
+DashAttach.setProxy(url) // set proxy for api. CREATED TO WORK AROUND CORS FOR BROWSER USE.
+await DashAttach.fetch(path, json) // http-requests to Dash API with path and json. json optional
+DashAttach.removeProxy() // delete proxy
 ```
 ### CORS
 CORS Dash API: localhost:3000 and dashblocks.org.
