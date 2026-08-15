@@ -133,6 +133,7 @@ const info = {
         },
         buffer: {
             dbp: async (project) => {
+                console.log(`https://${DashAttachData.apiUrl}/get-project/${project}`)
                 const req = await fetch(`https://${DashAttachData.apiUrl}/get-project/${project}`)
                 const dbpAR = await req.arrayBuffer()
                 const dbp = Buffer.from(dbpAR)
