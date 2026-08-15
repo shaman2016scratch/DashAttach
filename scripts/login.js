@@ -1,4 +1,4 @@
-import DashAttach from '../';
+import DashAttach from '../index.js';
 import * as readline from 'node:readline/promises'
 import { stdin as input, stdout as output } from 'node:process';
 
