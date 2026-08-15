@@ -341,6 +341,11 @@ cd ./node_modules/dashattach
 # Using
 npm test # main test
 npm run testDev # developer test
+npm run login # login to Dash
+# Use dev-version
+git switch develop
+# Use main version
+git switch main-develop
 ```
 #### Inputs
 ```JavaScript
