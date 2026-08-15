@@ -6,7 +6,10 @@ const dbp = {
     init: async (id) => {
         let dbp = Zip.generate()
         const dbpBuffer = await info.projects.buffer.dbp(id)
+        console.log(["type: ", typeof dbpBuffer].join(""))
+        console.log(["type: ", typeof dbp].join(""))
         dbp = Zip.loadFromBuffer(dbp, dbpBuffer)
+        console.log(["type: ", typeof dbp].join(""))
         return dbp
     },
     load: (buffer) => {
@@ -109,7 +112,6 @@ const dbp = {
     },
     meta: {
         vm: (dbp) => {
-            console.log(["type: ", typeof dbp].join(""))
             const project = JSON.parse(Zip.getFile(dbp, "project.json").async("string"))
             const sb3 = new SB3(project)
             return sb3.VM

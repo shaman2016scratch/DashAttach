@@ -15,7 +15,6 @@ async function tests() {
 	console.log(await DashAttach.auth.myInfo.getMyId())
 	console.log(await DashAttach.auth.myInfo.getMyUsername())
 	const dbp = await DashAttach.dbp.init(576)
-	console.log(["type: ", typeof dbp].join(""))
 	console.log(DashAttach.dbp.meta.vm(dbp))
 	console.log(DashAttach.dbp.meta.platform(dbp))
 	const stage = await DashAttach.dbp.target.getByName(dbp, "stage")
