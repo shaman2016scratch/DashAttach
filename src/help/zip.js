@@ -14,14 +14,14 @@ const loadZipFromURL = async (zip, url) => {
     return archive
 }
 
-const loadZipFromBase64 = (zip, base64) => {
-    zip.loadAsync(base64, { base64: true })
+const loadZipFromBase64 = async (zip, base64) => {
+    await zip.loadAsync(base64, { base64: true })
     return zip
 }
 
-const loadZipFromBuffer = (zip, zipBuffer) => {
+const loadZipFromBuffer = async (zip, zipBuffer) => {
     const zipBase64 = zipBuffer.toString("base64")
-    zip.loadAsync(zipBase64, { base64: true })
+    await zip.loadAsync(zipBase64, { base64: true })
     return zip
 }
 

@@ -116,24 +116,24 @@ await DashAttach.actions.uploadProject(buffer, filename, name, description) // u
 Note: files .dbp is .zip files
 ```JavaScript
 await DashAttach.dbp.init(id) // JSZip zip of Dash project. Return: JSZip
-DashAttach.dbp.load(buffer) // JSZip zip of Dash project buffer (from await DashAttach.info.projects.buffer.dbp() and other). Return: JSZip
-DashAttach.dbp.json(dbp) // get project.json of dash project. Return: object
-DashAttach.dbp.extensionStorage.all(dbp) // get extension storage (storage for extension) of this project. Return: object
-DashAttach.dbp.extensionStorage.getExtension(dbp, extensionId) // get storage of extension. Return: object
-DashAttach.dbp.extensionStorage.get(dbp, extensionId, key) // get key in storage of extension. Return: Any
-DashAttach.dbp.extensionStorage.set(dbp, extensionId, key, value) // set key in storage of extension.
-DashAttach.dbp.extensionStorage.setExtension(dbp, extensionId, value) // set storage of extension. typeof value === 'object'
-DashAttach.dbp.stage.vars(dbp) // get list of vars of stage. Return: array
-DashAttach.dbp.stage.lists(dbp) // get list of lists of stage. Return: array
+await DashAttach.dbp.load(buffer) // JSZip zip of Dash project buffer (from await DashAttach.info.projects.buffer.dbp() and other). Return: JSZip
+await DashAttach.dbp.json(dbp) // get project.json of dash project. Return: object
+await DashAttach.dbp.extensionStorage.all(dbp) // get extension storage (storage for extension) of this project. Return: object
+await DashAttach.dbp.extensionStorage.getExtension(dbp, extensionId) // get storage of extension. Return: object
+await DashAttach.dbp.extensionStorage.get(dbp, extensionId, key) // get key in storage of extension. Return: Any
+await DashAttach.dbp.extensionStorage.set(dbp, extensionId, key, value) // set key in storage of extension.
+await DashAttach.dbp.extensionStorage.setExtension(dbp, extensionId, value) // set storage of extension. typeof value === 'object'
+await DashAttach.dbp.stage.vars(dbp) // get list of vars of stage. Return: array
+await DashAttach.dbp.stage.lists(dbp) // get list of lists of stage. Return: array
 await DashAttach.dbp.targets.data(dbp) // get data of targets. Return: object ([stage:object,sprite1:object,sprite2:object,...])
 await DashAttach.dbp.targets.list(dbp) // get list of keys of DashAttach.dbp.targets.data(dbp). Return: array
 await DashAttach.dbp.targets.listData(dbp) // get list of values of DashAttach.dbp.targets.data(dbp). Return: array
-DashAttach.dbp.target.getByIndex(dbp, index) // get class 'Tagret' by target index (getting by key 'indexNum' in data of target (only in dbp.targets.data)). Return: Target
+await DashAttach.dbp.target.getByIndex(dbp, index) // get class 'Tagret' by target index (getting by key 'indexNum' in data of target (only in dbp.targets.data)). Return: Target
 await DashAttach.dbp.target.getByName(dbp, name) // get class 'Tagret' by target name (getting by key 'name' in data of target). Return: Target
 await DashAttach.dbp.target.getByObject(dbp, index) // get class 'Tagret' by target object (object in dbp.targets.data). Return: Target
-DashAttach.dbp.meta.vm() // get vm version
-DashAttach.dbp.meta.agent() // get user agent of last project editor
-DashAttach.dbp.meta.platform() /* Get Platform. Return: Object {
+await DashAttach.dbp.meta.vm() // get vm version
+await DashAttach.dbp.meta.agent() // get user agent of last project editor
+await DashAttach.dbp.meta.platform() /* Get Platform. Return: Object {
     name: string (example: Dash),
     url: string (example: 'https://dashblocks.org')
 }
