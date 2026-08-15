@@ -15,8 +15,8 @@ async function tests() {
 	console.log(await DashAttach.auth.myInfo.getMyId())
 	console.log(await DashAttach.auth.myInfo.getMyUsername())
 	const dbp = await DashAttach.dbp.init(576)
-	console.log(DashAttach.dbp.meta.vm(dbp))
-	console.log(DashAttach.dbp.meta.platform(dbp))
+	console.log(await DashAttach.dbp.meta.vm(dbp))
+	console.log(await DashAttach.dbp.meta.platform(dbp))
 	const stage = await DashAttach.dbp.target.getByName(dbp, "stage")
 	const lists = await stage.listObj()
 	const fileDataList = lists["file data"]

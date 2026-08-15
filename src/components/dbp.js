@@ -112,18 +112,18 @@ const dbp = {
         }
     },
     meta: {
-        vm: (dbp) => {
-            const project = JSON.parse(Zip.getFileAsString(dbp, "project.json"))
+        vm: async (dbp) => {
+            const project = JSON.parse(await Zip.getFileAsString(dbp, "project.json"))
             const sb3 = new SB3(project)
             return sb3.VM
         },
-        agent: (dbp) => {
-            const project = JSON.parse(Zip.getFileAsString(dbp, "project.json"))
+        agent: async (dbp) => {
+            const project = JSON.parse(await Zip.getFileAsString(dbp, "project.json"))
             const sb3 = new SB3(project)
             return sb3.UserAgent
         },
-        platform: (dbp) => {
-            const project = JSON.parse(Zip.getFileAsString(dbp, "project.json"))
+        platform: async (dbp) => {
+            const project = JSON.parse(await Zip.getFileAsString(dbp, "project.json"))
             const sb3 = new SB3(project)
             return sb3.Platform
         }
