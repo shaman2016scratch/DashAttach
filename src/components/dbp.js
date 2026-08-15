@@ -109,7 +109,7 @@ const dbp = {
     },
     meta: {
         vm: (dbp) => {
-            const project = JSON.parse(Zip.getFile(dbp, "project.json"))
+            const project = JSON.parse(Zip.getFileAsString(dbp, "project.json"))
             const sb3 = new SB3(project)
             return sb3.VM
         },
