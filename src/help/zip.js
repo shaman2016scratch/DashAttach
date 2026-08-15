@@ -10,10 +10,12 @@ const loadZipFromURL = async (zip, url) => {
     const zipBuffer = Buffer.from(zipAR)
     const zipBase64 = zipBuffer.toString("base64")
     zip.loadAsync(zipBase64, { base64: true })
+    return zip
 }
 
 const loadZipFromBase64 = (zip, base64) => {
     zip.loadAsync(base64, { base64: true })
+    return zip
 }
 
 const loadZipFromBuffer = (zip, zipBuffer) => {
@@ -24,6 +26,10 @@ const loadZipFromBuffer = (zip, zipBuffer) => {
 
 const getFileInZip = (zip, file) => {
     return zip.file(file)
+}
+
+const getFileInZipAsString = (zip, file) => {
+    return zip.file(file).async("string")
 }
 
 const setFileInZip = (zip, file, value, options) => {
@@ -37,8 +43,9 @@ const Zip = {
     loadFromBase64: loadZipFromBase64,
     loadFromBuffer: loadZipFromBuffer,
     getFile: getFileInZip,
+    getFileAsString: getFileInZipAsString,
     setFile: setFileInZip
 }
 
 export default Zip
-export { generateZip, loadZipFromURL, loadZipFromBase64, loadZipFromBuffer, getFileInZip, setFileInZip }
+export { generateZip, loadZipFromURL, loadZipFromBase64, loadZipFromBuffer, getFileInZip, getFileInZipAsString, setFileInZip }
