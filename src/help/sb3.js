@@ -17,7 +17,7 @@ class SB3 {
         for (let i = 0; i < this.targets.length; i++) {
             const targetData = this.target(i)
             obj[targetData.name] = targetData
-            obj[targetData.name].indexNum = Object.keys(obj).length
+            obj[targetData.name].indexNum = Object.keys(obj).length - 1
         }
         return obj
     }

@@ -102,7 +102,7 @@ const dbp = {
             const project = JSON.parse(await Zip.getFileAsString(dbp, "project.json"))
             const sb3 = new SB3(project)
             const targets = await sb3.targetObject()
-            return new Target(project, sb3.target(targets[name].indexNum))
+            return new Target(project, targets[name].indexNum)
         },
         getByObject: async (dbp, obj) => {
             const project = JSON.parse(await Zip.getFileAsString(dbp, "project.json"))
