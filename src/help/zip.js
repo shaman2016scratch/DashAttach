@@ -28,13 +28,16 @@ const getFileInZip = (zip, file) => {
     return zip.file(file)
 }
 
-const getFileInZipAsString = (zip, file) => {
-    return zip.file(file).async("string")
+const getFileInZipAsString = async (zip, file) => {
+    const file2 = zip.file(file)
+    const stringFromFile = await file2.async("string")
+    return stringFromFile
 }
 
 const setFileInZip = (zip, file, value, options) => {
     if (options) zip.file(file, value, options)
     if (!options) zip.file(file, value)
+    return zip
 }
 
 const Zip = {
