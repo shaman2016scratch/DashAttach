@@ -1,7 +1,7 @@
 # DashAttach
 Dashattach - library for interacting with the Dash API (Dash/Dashlocks - scratch mod, like turbowarp. dashblocks.org).
 
-Last version: [0.4.1](https://www.npmjs.com/package/dashattach/v/0.4.1)
+Last version: [0.4.2](https://www.npmjs.com/package/dashattach/v/0.4.2)
 
 npm: https://www.npmjs.com/package/dashattach
 
@@ -134,8 +134,8 @@ await DashAttach.dbp.target.getByObject(dbp, index) // get class 'Tagret' by tar
 await DashAttach.dbp.meta.vm() // get vm version
 await DashAttach.dbp.meta.agent() // get user agent of last project editor
 await DashAttach.dbp.meta.platform() /* Get Platform. Return: Object {
-    name: string (example: Dash),
-    url: string (example: 'https://dashblocks.org')
+    name: string (example: 'Dash'),
+    url: string (example: 'https://dashblocks.org/')
 }
 */
 /*

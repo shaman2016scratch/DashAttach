@@ -34,7 +34,7 @@ const DashAttach = {
     dbp,
     library: {
         name: 'DashAttach',
-        version: '0.4.1',
+        version: '0.4.2',
         author: 'polzovatel_8787',
         license: 'GPL-3.0'
     },

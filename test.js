@@ -1,5 +1,7 @@
 import DashAttach from "./index.js";
 
+console.log(`${DashAttach.library.name} v${DashAttach.library.version} tests`)
+
 async function tests() {
 	console.log(await DashAttach.info.users.getRole(7))
 	console.log(await DashAttach.info.users.getId(7))
