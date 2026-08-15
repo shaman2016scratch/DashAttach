@@ -40,7 +40,7 @@ class Target {
         this.project = project
         this.index = number
         this.projectData = new SB3(this.project)
-        this.my = this.projectData.target[this.index]
+        this.my = this.projectData.target(this.index)
     }
 
     get isStage () {
@@ -73,7 +73,7 @@ class Target {
             obj[varData[0]].push(Object.keys(obj).length)
             obj[varData[0]].push(keys[i])
         }
-        return arr
+        return obj
     }
 
     listObj () {
@@ -86,7 +86,7 @@ class Target {
             obj[varData[0]].push(Object.keys(obj).length)
             obj[varData[0]].push(keys[i])
         }
-        return arr
+        return obj
     }
 }
 
