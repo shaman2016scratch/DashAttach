@@ -10,7 +10,7 @@ const loadZipFromURL = async (zip, url) => {
     const zipAR = await req.arrayBuffer()
     const zipBuffer = Buffer.from(zipAR)
     const zipBase64 = zipBuffer.toString("base64")
-    archive.loadAsync(zipBase64, { base64: true })
+    await archive.loadAsync(zipBase64, { base64: true })
     return archive
 }
 
