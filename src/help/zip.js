@@ -22,7 +22,6 @@ const loadZipFromBuffer = (zip, zipBuffer) => {
 }
 
 const getFileInZip = (zip, file) => {
-    console.log(["type: ", typeof zip].join(""))
     return zip.file(file)
 }
 
