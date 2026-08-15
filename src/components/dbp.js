@@ -5,13 +5,17 @@ import info from "./information.js"
 const dbp = {
     init: async (id) => {
         let dbp = Zip.generate()
-        const dbpBuffer = await info.projects.buffer.dbp(id)
-        dbp = Zip.loadFromBuffer(dbp, dbpBuffer)
+        dbp = await Zip.loadFromURL(dbp, `https://api.dashblocks.org/get-project/${id}`)
         return dbp
     },
     load: (buffer) => {
         let dbp = Zip.generate()
         dbp = Zip.loadFromBuffer(dbp, buffer)
+        return dbp
+    },
+    loadUrl: (url) => {
+        let dbp = Zip.generate()
+        dbp = Zip.loadFromURL(dbp, url)
         return dbp
     },
     json: (dbp) => {
