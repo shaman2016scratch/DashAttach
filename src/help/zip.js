@@ -17,9 +17,7 @@ const loadZipFromBase64 = (zip, base64) => {
 }
 
 const loadZipFromBuffer = (zip, zipBuffer) => {
-    console.log(["type: ", typeof zipBuffer].join(""))
     const zipBase64 = zipBuffer.toString("base64")
-    console.log(["type: ", typeof zipBase64].join(""))
     zip.loadAsync(zipBase64, { base64: true })
 }
 

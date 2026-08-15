@@ -7,7 +7,6 @@ const dbp = {
         let dbp = Zip.generate()
         const dbpBuffer = await info.projects.buffer.dbp(id)
         dbp = Zip.loadFromBuffer(dbp, dbpBuffer)
-        console.log(["type: ", typeof dbp].join(""))
         return dbp
     },
     load: (buffer) => {
