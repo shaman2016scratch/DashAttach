@@ -31,9 +31,7 @@ const singinDash = async (userId, password) => {
     const res = await req.json()
     let cacheDashAttachData = DashAttachData
     cacheDashAttachData.isLogin = true
-    cacheDashAttachData.session.user = userId
-    cacheDashAttachData.session.password = password
-    setDashAttachData(DashAttachDataCash)
+    setDashAttachData(cacheDashAttachData)
     return res
 }
 

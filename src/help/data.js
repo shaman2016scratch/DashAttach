@@ -1,10 +1,6 @@
 const DashAttachDataDefault = {
     isLogin: false,
     apiUrl: "api.dashblocks.org",
-    session: {
-        user: 0,
-        password: ""
-    },
     useProxy: false,
     originalApiUrl: "api.dashblocks.org"
 }
