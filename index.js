@@ -1,4 +1,4 @@
-import { singinDash, getSessionDash, getDashUser, getDashProject } from "./src/help/apis.js"
+import { singinDash, getSessionDash, getDashUser, getDashProject, getOffset } from "./src/help/apis.js"
 import { DashAttachData, setDashAttachData } from "./src/help/data.js"
 import auth from "./src/components/auth.js"
 import info from "./src/components/information.js"
@@ -9,6 +9,7 @@ import dev from "./src/components/dev/index.js"
 const DashAttach = {
     featuredProjects: async (offset, limit) => {
         offset = offset || DashAttachData.defaultValues.offset
+        offset = getOffset(offset)
         limit = limit || DashAttachData.defaultValues.limit
         const result = await (await fetch(`https://${DashAttachData.apiUrl}/featured-projects?offset=${+offset || 0}&limit=${+limit || 5}`)).json()
         return result.projects
@@ -20,6 +21,7 @@ const DashAttach = {
     search: {
         projects: async (q, offset, limit) => {
             offset = offset || DashAttachData.defaultValues.offset
+            offset = getOffset(offset)
             limit = limit || DashAttachData.defaultValues.limit
             const result = await (await fetch(`https://${DashAttachData.apiUrl}/search/projects?offset=${+offset || 0}&limit=${+limit || 5}&q=${q}`)).json()
             return result.results

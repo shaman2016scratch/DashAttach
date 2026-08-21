@@ -131,4 +131,11 @@ const getDashProjectForks = async (project, offset, limit) => {
     return res
 }
 
-export { checkIsLogin, singinDash, getSessionDash, getDashUser, getDashProject, getDashUserProjects, getDashUserFollowers, getDashUserFollowing, getSessionMessagesDash, getSessionActivityDash, logoutDash, getDashUserActions, getDashProjectForks }
+const getOffset = offset => {
+    offset = offset || DashAttachData.defaultValues.offset
+    if (offset > DashAttachData.maxOffset) offset = DashAttachData.maxOffset
+    if (offset < DashAttachData.minOffset) offset = DashAttachData.minOffset
+    return offset
+}
+
+export { checkIsLogin, singinDash, getSessionDash, getDashUser, getDashProject, getDashUserProjects, getDashUserFollowers, getDashUserFollowing, getSessionMessagesDash, getSessionActivityDash, logoutDash, getDashUserActions, getDashProjectForks, getOffset }

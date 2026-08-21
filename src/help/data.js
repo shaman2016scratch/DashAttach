@@ -6,7 +6,9 @@ const DashAttachDataDefault = {
     defaultValues: {
         offset: 0,
         limit: 20
-    }
+    },
+    maxOffset: 40,
+    minOffset: 0
 }
 
 let DashAttachData = DashAttachDataDefault

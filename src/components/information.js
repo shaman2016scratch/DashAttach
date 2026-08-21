@@ -1,4 +1,4 @@
-import { getDashUser, getDashProject, getDashUserProjects, getDashUserFollowers, getDashUserFollowing, getDashUserActions, getDashProjectForks } from "../help/apis.js"
+import { getDashUser, getDashProject, getDashUserProjects, getDashUserFollowers, getDashUserFollowing, getDashUserActions, getDashProjectForks, getOffset } from "../help/apis.js"
 import { DashAttachData } from "../help/data.js"
 
 const info = {
@@ -47,15 +47,15 @@ const info = {
             return result?.profile?.recommendedProject || {}
         },
         getProjects: async (user, offset, limit) => {
-            const result = await getDashUserProjects(user, offset, limit)
+            const result = await getDashUserProjects(user, getOffset(offset), limit)
             return result || []
         },
         getFollowers: async (user, offset, limit) => {
-            const result = await getDashUserFollowers(user, offset, limit)
+            const result = await getDashUserFollowers(user, getOffset(offset), limit)
             return result || []
         },
         getFollowing: async (user, offset, limit) => {
-            const result = await getDashUserFollowing(user, offset, limit)
+            const result = await getDashUserFollowing(user, getOffset(offset), limit)
             return result || []
         },
         getGradient: async (user) => {
@@ -94,7 +94,7 @@ const info = {
             }
         },
         getActions: async (user, offset, limit) => {
-            const result = await getDashUserActions(user, offset, limit)
+            const result = await getDashUserActions(user, getOffset(offset), limit)
             return result?.actions || []
         }
     },
@@ -151,7 +151,7 @@ const info = {
             }
         },
         getForks: async (project, offset, limit) => {
-            const result = await getDashProjectForks(project, offset, limit)
+            const result = await getDashProjectForks(project, getOffset(offset), limit)
             return result || []
         }
     }
