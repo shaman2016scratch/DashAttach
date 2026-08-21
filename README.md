@@ -90,6 +90,8 @@ await DashAttach.info.projects.getDescription(id) // get description of project.
 await DashAttach.info.projects.getTrumbnail(id) // get trumbnail url of project. Return: string
 await DashAttach.info.projects.stats.fires(id) // get fires of project. Return: number
 await DashAttach.info.projects.stats.views(id) // get views of project. Return: number
+await DashAttach.info.projects.stats.forks(id) // get forks count of project. Return: number
+await DashAttach.info.projects.getForks(id, offset, limit) // get forks of project. Return: array
 DashAttach.info.projects.getFileURL(id) // get file url of project. Return: string
 await DashAttach.info.projects.buffer.dbp(id) // get buffer of project file. Return: buffer
 await DashAttach.info.projects.buffer.trumbnail(id) // get buffer of trumbnail of project. Return: buffer
@@ -227,6 +229,7 @@ export default publishProject
 ```
 ### DashAttachPlus
 DashAttachPush - alternative for DashAttach
+Last version: 0.1.2
 #### Import
 ```JavaScript
 import DashAttachPlus from 'dashattach/plus'
@@ -241,6 +244,8 @@ await DashAttachPlus.projects.info(id) /*
         description: string,
         fires: number,
         views: number,
+        forksCount: number,
+        forks: array,
         author: {
             username: string,
             id: number,

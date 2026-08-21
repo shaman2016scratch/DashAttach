@@ -5,6 +5,7 @@ import info from "./src/components/information.js"
 import actions from "./src/components/actions.js"
 import dbp from "./src/components/dbp.js"
 import dev from "./src/components/dev/index.js"
+import packageJson from "./package.json"
 
 const DashAttach = {
     featuredProjects: async (offset, limit) => {
@@ -39,10 +40,10 @@ const DashAttach = {
     },
     dbp,
     library: {
-        name: 'DashAttach',
-        version: '0.4.3-develop',
-        author: 'polzovatel_8787',
-        license: 'GPL-3.0'
+        name: packageJson.name,
+        version: [packageJson.version].join(""),
+        author: packageJson.author,
+        license: packageJson.license
     },
     fetch: async (path, json) => {
         if (json) {
