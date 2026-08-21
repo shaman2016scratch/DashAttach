@@ -1,4 +1,4 @@
-import { getDashUser, getDashProject, getDashUserProjects, getDashUserFollowers, getDashUserFollowing, getDashUserActions } from "../help/apis.js"
+import { getDashUser, getDashProject, getDashUserProjects, getDashUserFollowers, getDashUserFollowing, getDashUserActions, getDashProjectForks } from "../help/apis.js"
 import { DashAttachData } from "../help/data.js"
 
 const info = {
@@ -126,6 +126,10 @@ const info = {
             views: async (project) => {
                 const result = await getDashProject(project)
                 return result?.stats?.views || 0
+            },
+            forks: async (project) => {
+                const result = await getDashProject(project)
+                return result?.stats?.forks || 0
             }
         },
         getFileURL: (project) => {
@@ -145,6 +149,10 @@ const info = {
                 const img = Buffer.from(imgAR)
                 return img
             }
+        },
+        getForks: async (project, offset, limit) => {
+            const result = await getDashProjectForks(project, offset, limit)
+            return result || []
         }
     }
 }

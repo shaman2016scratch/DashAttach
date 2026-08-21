@@ -8,6 +8,8 @@ import dev from "./src/components/dev/index.js"
 
 const DashAttach = {
     featuredProjects: async (offset, limit) => {
+        offset = offset || DashAttachData.defaultValues.offset
+        limit = limit || DashAttachData.defaultValues.limit
         const result = await (await fetch(`https://${DashAttachData.apiUrl}/featured-projects?offset=${+offset || 0}&limit=${+limit || 5}`)).json()
         return result.projects
     },
@@ -17,6 +19,8 @@ const DashAttach = {
     dev,
     search: {
         projects: async (q, offset, limit) => {
+            offset = offset || DashAttachData.defaultValues.offset
+            limit = limit || DashAttachData.defaultValues.limit
             const result = await (await fetch(`https://${DashAttachData.apiUrl}/search/projects?offset=${+offset || 0}&limit=${+limit || 5}&q=${q}`)).json()
             return result.results
         },
@@ -34,7 +38,7 @@ const DashAttach = {
     dbp,
     library: {
         name: 'DashAttach',
-        version: '0.4.2',
+        version: '0.4.3-develop',
         author: 'polzovatel_8787',
         license: 'GPL-3.0'
     },
