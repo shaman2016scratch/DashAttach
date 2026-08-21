@@ -1,4 +1,13 @@
-import { getDashUser, getDashProject, getDashUserProjects, getDashUserFollowers, getDashUserFollowing, getDashUserActions, getDashProjectForks, getOffset } from "../help/apis.js"
+import {
+    getDashUser,
+    getDashProject,
+    getDashUserProjects,
+    getDashUserFollowers,
+    getDashUserFollowing,
+    getDashUserActions,
+    getDashProjectForks,
+    getOffset
+} from "../help/apis.js"
 import { DashAttachData } from "../help/data.js"
 
 const info = {
