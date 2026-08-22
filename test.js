@@ -22,5 +22,6 @@ async function tests() {
 	const stage = await DashAttach.dbp.target.getByName(dbp, "Stage")
 	const lists = await stage.listObj()
 	const fileDataList = lists["file data"]
+	console.log(stage.boardcasts)
 }
 tests()

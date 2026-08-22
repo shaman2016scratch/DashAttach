@@ -8,6 +8,20 @@ class SB3 {
         return this.project.extensionStorage
     }
 
+    set extensionStorage (value) {
+        this.project.extensionStorage = Object(value)
+        return this.project.extensionStorage
+    }
+
+    set extensionStorageExtension (extension, value) {
+        this.project.extensionStorage[extension] = value
+        return this.project.extensionStorage
+    }
+
+    get extensionStorageExtension (extension) {
+        return this.project.extensionStorage[extension]
+    }
+
     target (index) {
         return this.targets[index]
     }
@@ -88,6 +102,10 @@ class Target {
         }
         return obj
     }
+
+    get boardcasts () {
+        return this.my.boardcasts
+    }
 }
 
 class Stage {
@@ -111,6 +129,10 @@ class Stage {
     async listObj () {
         const arr = await this.stage.listObj()
         return arr
+    }
+
+    get boardcasts () {
+        return this.stage.boardcasts
     }
 }
 

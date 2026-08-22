@@ -343,6 +343,9 @@ cd ./DashAttach
 # or
 npm i dashattach # or yarn add dashattach
 cd ./node_modules/dashattach
+# or
+npm i https://github.com/shaman2016scratch/DashAttach
+cd ./node_modules/dashattach
 # Using
 npm test # main test
 npm run testDev # developer test
