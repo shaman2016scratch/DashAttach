@@ -13,12 +13,12 @@ class SB3 {
         return this.project.extensionStorage
     }
 
-    set extensionStorageExtension (extension, value) {
+    extensionStorageExtension (extension, value) {
         this.project.extensionStorage[extension] = value
         return this.project.extensionStorage
     }
 
-    get extensionStorageExtension (extension) {
+    extensionStorageExtension (extension) {
         return this.project.extensionStorage[extension]
     }
 
