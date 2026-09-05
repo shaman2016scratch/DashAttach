@@ -47,6 +47,14 @@ class SB3 {
     get Platform () {
         return this.project.meta.platform
     }
+
+    get extensions () {
+        return this.project.extensions
+    }
+
+    get extensionURLs () {
+        return this.project.extensionURLs
+    }
 }
 
 class Target {

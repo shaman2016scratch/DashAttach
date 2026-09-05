@@ -139,6 +139,14 @@ const dbp = {
             const sb3 = new SB3(project)
             return sb3.Platform
         }
+    },
+    extensions: async (dbp) => {
+        const project = JSON.parse(await Zip.getFileAsString(dbp, "project.json"))
+        return project.extensions
+    },
+    extensionURLs: async (dbp) => {
+        const project = JSON.parse(await Zip.getFileAsString(dbp, "project.json"))
+        return project.extensionURLs
     }
 }
 
