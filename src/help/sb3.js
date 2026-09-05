@@ -126,6 +126,10 @@ class Target {
     get currentCostume () {
         return this.my.currentCostume
     }
+
+    get costumes () {
+        return this.my.costumes
+    }
 }
 
 class Stage {
