@@ -130,6 +130,30 @@ class Target {
     get costumes () {
         return this.my.costumes
     }
+
+    get sounds () {
+        return this.my.sounds
+    }
+
+    get volume () {
+        return this.my.volume
+    }
+
+    get visible () {
+        return this.my.visible
+    }
+
+    get pos () {
+        return [ this.my.x, this.my.y ]
+    }
+
+    get size () {
+        return this.my.size
+    }
+
+    get direction () {
+        return this.my.direction
+    }
 }
 
 class Stage {
@@ -180,7 +204,15 @@ class Stage {
     }
 
     get costumes () {
-        return this.my.costumes
+        return this.stage.costumes
+    }
+
+    get sounds () {
+        return this.stage.sounds
+    }
+
+    get volume () {
+        return this.stage.volume
     }
 }
 

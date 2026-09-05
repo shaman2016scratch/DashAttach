@@ -114,6 +114,13 @@ const dbp = {
             const costumes = clasS.costumes
             const costume = costumes[index]
             const costumeBuffer = await Zip.getFileAsArrayBuffer(dbp, costume.md5ext)
+            return costumeBuffer
+        },
+        soundFile: async (dbp, clasS, index) => {
+            const sounds = clasS.sounds
+            const sound = sounds[index]
+            const soundBuffer = await Zip.getFileAsArrayBuffer(dbp, sound.md5ext)
+            return soundBuffer
         }
     },
     meta: {

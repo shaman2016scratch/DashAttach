@@ -135,6 +135,7 @@ await DashAttach.dbp.target.getByIndex(dbp, index) // get class 'Tagret' by targ
 await DashAttach.dbp.target.getByName(dbp, name) // get class 'Tagret' by target name (getting by key 'name' in data of target). Return: Target
 await DashAttach.dbp.target.getByObject(dbp, index) // get class 'Tagret' by target object (object in dbp.targets.data). Return: Target
 await DashAttach.dbp.target.costumeFile(dbp, targetClass, costumeIndex) // Return: ArrayBuffer
+await DashAttach.dbp.target.soundFile(dbp, targetClass, soundIndex) // Return: ArrayBuffer
 await DashAttach.dbp.meta.vm() // get vm version
 await DashAttach.dbp.meta.agent() // get user agent of last project editor
 await DashAttach.dbp.meta.platform() /* Get Platform. Return: Object {
@@ -169,6 +170,11 @@ target.blockClass(id) // class of block
 target.comments
 target.currentCostume
 target.costumes
+target.sounds
+target.volume
+target.visible
+target.pos // position array ([x,y])
+target.size
 ```
 #### Class 'Block'
 ```JavaScript
