@@ -134,6 +134,7 @@ await DashAttach.dbp.targets.listData(dbp) // get list of values of DashAttach.d
 await DashAttach.dbp.target.getByIndex(dbp, index) // get class 'Tagret' by target index (getting by key 'indexNum' in data of target (only in dbp.targets.data)). Return: Target
 await DashAttach.dbp.target.getByName(dbp, name) // get class 'Tagret' by target name (getting by key 'name' in data of target). Return: Target
 await DashAttach.dbp.target.getByObject(dbp, index) // get class 'Tagret' by target object (object in dbp.targets.data). Return: Target
+await DashAttach.dbp.target.costumeFile(dbp, targetClass, costumeIndex) // Return: ArrayBuffer
 await DashAttach.dbp.meta.vm() // get vm version
 await DashAttach.dbp.meta.agent() // get user agent of last project editor
 await DashAttach.dbp.meta.platform() /* Get Platform. Return: Object {
@@ -165,6 +166,9 @@ target.boardcasts // object of messages (key = id, value = name)
 target.blocks // object of blocks (key = id, value = data)
 target.block(id) // object of block
 target.blockClass(id) // class of block
+target.comments
+target.currentCostume
+target.costumes
 ```
 #### Class 'Block'
 ```JavaScript

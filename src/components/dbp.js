@@ -109,6 +109,11 @@ const dbp = {
             const sb3 = new SB3(project)
             const targets = await sb3.targetObject()
             return new Target(project, sb3.target(targets[obj.name].indexNum))
+        },
+        costumeFile: async (dbp, clasS, index) => {
+            const costumes = clasS.costumes
+            const costume = costumes[index]
+            const costumeBuffer = await Zip.getFileAsArrayBuffer(dbp, costume.md5ext)
         }
     },
     meta: {

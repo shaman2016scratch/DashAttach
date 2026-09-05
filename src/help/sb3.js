@@ -118,6 +118,14 @@ class Target {
     blockClass (id) {
         return new Block(id, this.index, this.project)
     }
+
+    get comments () {
+        return this.my.comments
+    }
+
+    get currentCostume () {
+        return this.my.currentCostume
+    }
 }
 
 class Stage {
@@ -157,6 +165,18 @@ class Stage {
 
     blockClass (id) {
         return this.stage.blockClass(id)
+    }
+
+    get comments () {
+        return this.stage.comments
+    }
+
+    get currentCostume () {
+        return this.stage.currentCostume
+    }
+
+    get costumes () {
+        return this.my.costumes
     }
 }
 

@@ -35,6 +35,12 @@ const getFileInZipAsString = async (zip, file) => {
     return stringFromFile
 }
 
+const getFileInZipAsArrayBuffer = async (zip, file) => {
+    const file2 = zip.file(file)
+    const stringFromFile = await file2.async("arraybuffer")
+    return stringFromFile
+}
+
 const setFileInZip = (zip, file, value, options) => {
     if (options) zip.file(file, value, options)
     if (!options) zip.file(file, value)
@@ -48,8 +54,9 @@ const Zip = {
     loadFromBuffer: loadZipFromBuffer,
     getFile: getFileInZip,
     getFileAsString: getFileInZipAsString,
+    getFileAsArrayBuffer: getFileInZipAsArrayBuffer,
     setFile: setFileInZip
 }
 
 export default Zip
-export { generateZip, loadZipFromURL, loadZipFromBase64, loadZipFromBuffer, getFileInZip, getFileInZipAsString, setFileInZip }
+export { generateZip, loadZipFromURL, loadZipFromBase64, loadZipFromBuffer, getFileInZip, getFileInZipAsString, getFileInZipAsArrayBuffer, setFileInZip }
