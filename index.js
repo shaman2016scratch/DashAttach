@@ -16,7 +16,7 @@ const DashAttach = {
     },
     auth,
     info,
-    actions,
+    actions: actions.profile,
     dev,
     search: {
         projects: async (q, offset, limit) => {

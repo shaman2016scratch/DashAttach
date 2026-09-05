@@ -113,6 +113,7 @@ await DashAttach.actions.uploadTrumbnail(id, buffer, filename) // upload trumbna
 await DashAttach.actions.viewProject(id) // add view project
 await DashAttach.actions.markAllMessagesAsRead(id) // mark all messages as read
 await DashAttach.actions.uploadProject(buffer, filename, name, description) // upload project
+await DashAttach.actions.forkProject(buffer, filename, name, description, parentProjectId) // upload project fork
 ```
 ### DBP (DashBlocks Project) files
 Note: files .dbp is .zip files

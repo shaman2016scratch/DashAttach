@@ -230,6 +230,25 @@ const actions = {
                 console.log("Please, login!")
                 return {}
             }
+        },
+        forkProject: async (file, filename, name, description, parent) => {
+            const imIsLogin = await checkIsLogin()
+            if (imIsLogin) {
+                const BODY = new FormData()
+                BODY.append('file', file, { filename })
+                BODY.append('name', name.toString())
+                BODY.append('description', description.toString())
+                BODY.append('parentId', Number(parent))
+                const res = await (await fetch(`https://${DashAttachData.apiUrl}/save-project`, {
+                    method: "POST",
+                    credentials: "include",
+                    body: BODY
+                })).json()
+                return res
+            } else {
+                console.log("Please, login!")
+                return {}
+            }
         }
     }
 }
