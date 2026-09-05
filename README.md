@@ -159,8 +159,28 @@ target.isStage
 target.name
 tagret.vars
 target.lists
-target.varObj // object of variables (key = name, value = value)
-target.listObj // object of lists (key = name, value = value)
+target.varObj() // object of variables (key = name, value = value)
+target.listObj() // object of lists (key = name, value = value)
+target.boardcasts // object of messages (key = id, value = name)
+target.blocks // object of blocks (key = id, value = data)
+target.block(id) // object of block
+target.blockClass(id) // class of block
+```
+#### Class 'Block'
+```JavaScript
+// Getting
+const dbp = await DashAttach.dbp.init(576)
+const target = DashAttach.dbp.target.getByIndex(dbp, 0)
+const block = target.blockClass("=#")
+// Using
+block.opcode
+block.nextBlock // next block id
+block.parentBlock // parent block id
+block.fields
+block.inputs
+block.shadow
+block.topLevel
+block.pos // array of block position ([x,y])
 ```
 ### Other
 ```JavaScript
@@ -297,7 +317,7 @@ await DashAttachPlus.users.avatar(user) /*
 import { checkIsLogin, singinDash, getSessionDash, getDashUser, getDashProject, getDashUserProjects, getDashUserFollowers, getDashUserFollowing, getSessionMessagesDash, getSessionActivityDash, logoutDash, getDashUserActions, getDashProjectForks, getOffset } from 'dashattach/src/help/apis.js'
 import { DashAttachData, setDashAttachData } from 'dashattach/src/help/data.js'
 import Zip, { generateZip, loadZipFromURL, loadZipFromBase64, loadZipFromBuffer, getFileInZip, setFileInZip } from 'dashattach/src/help/zip.js'
-import SB3, { Target, Stage } from 'dashattach/src/help/sb3.js'
+import SB3, { Target, Stage, Block } from 'dashattach/src/help/sb3.js'
 // Usage
 // 1. Zip
 Zip /* Return: Object {

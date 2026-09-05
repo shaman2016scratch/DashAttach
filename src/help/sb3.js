@@ -106,6 +106,18 @@ class Target {
     get boardcasts () {
         return this.my.boardcasts
     }
+
+    get blocks () {
+        return this.my.blocks
+    }
+
+    block (id) {
+        return this.my.blocks[id]
+    }
+
+    blockClass (id) {
+        return new Block(id, this.index, this.project)
+    }
 }
 
 class Stage {
@@ -134,7 +146,62 @@ class Stage {
     get boardcasts () {
         return this.stage.boardcasts
     }
+
+    get blocks () {
+        return this.stage.blocks
+    }
+
+    block (id) {
+        return this.stage.block(id)
+    }
+
+    blockClass (id) {
+        return this.stage.blockClass(id)
+    }
+}
+
+class Block {
+    constructor (id, target, project) {
+        this.target = new Target(target, project)
+        this.project = project
+        this.id = id
+        this.targetId = target
+        this.stage = new Stage(project)
+        this.my = this.target.blocks[id]
+    }
+
+    get opcode () {
+        return this.my.opcode
+    }
+
+    get nextBlock () {
+        return this.my.next
+    }
+
+    get parentBlock () {
+        return this.my.parent
+    }
+
+    get fields () {
+        return this.my.fields
+    }
+
+    get inputs () {
+        return this.my.inputs
+    }
+
+    get shadow () {
+        return this.my.shadow
+    }
+
+    get topLevel () {
+        return this.my.topLevel
+    }
+
+    get pos () {
+        return [ this.my.x, this.my.y ]
+    }
 }
 
 export default SB3
-export { Target, Stage }
+export { Target, Stage, Block }
