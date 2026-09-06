@@ -18,7 +18,7 @@ class SB3 {
         return this.project.extensionStorage
     }
 
-    extensionStorageExtension (extension) {
+    getExtensionStorageExtension (extension) {
         return this.project.extensionStorage[extension]
     }
 

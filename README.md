@@ -338,26 +338,32 @@ Zip /* Return: Object {
     loadFromBase64: func,
     loadFromBuffer: func,
     getFile: func,
+    getFileAsString: func,
+    getFileAsArrayBuffer: func,
     setFile: func
 } */
 generateZip() // generate zip. Return: JSZip
 loadZipFromURL(zip, url) // add files of zip from URL to zip.
 loadZipFromBase64(zip, base64) // add files of zip from base64 to zip.
 loadZipFromBuffer(zip, buffer) // add files of zip from buffer to zip.
-getFileInZip(zip, file) // Return: ?, for get string: getFileInZip(zip, file).async("string")
+getFileInZip(zip, file) // Return: ?
+getFileInZipAsString(zip, file) // Return: string
+getFileInZipAsArrayBuffer(zip, file) // Return: ArrayBuffer
 setFileInZip(zip, file, value, options) // https://stuk.github.io/jszip/documentation/api_jszip/file_data.html
 // 2. sb3
 new SB3(project) /* Class.
     sb3.targets: array
-    sb3.extensionStorage: object. Olny get
-    sb3.target(index): get target by index. Return: Object
+    sb3.extensionStorage: object
+    sb3.target(index): object
     await sb3.targetObject(): get target object (Stage:object,sprite1:object,...),
     sb3.VM: vm version,
     sb3.UserAgent: user-agent of last project editor
-    sb3.platform: platform of project. Return: Object {
+    sb3.Platform: platform of project. Return: Object {
         name: string,
         url: string
-    }
+    },
+    sb3.extensions: array,
+    sb3.extensionURLs: object
 */
 new Target(project, index) // Class.
 new Stage(project) /* Class {
