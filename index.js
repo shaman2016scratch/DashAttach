@@ -1,5 +1,6 @@
 import { singinDash, getSessionDash, getDashUser, getDashProject, getOffset } from "./src/help/apis.js"
 import { DashAttachData, setDashAttachData } from "./src/help/data.js"
+import { pkg } from "./src/help/lib.cjs"
 import auth from "./src/components/auth.js"
 import info from "./src/components/information.js"
 import actions from "./src/components/actions.js"
@@ -39,10 +40,10 @@ const DashAttach = {
     },
     dbp,
     library: {
-        name: 'DashAttach',
-        version: '0.4.5',
-        author: 'polzovatel_8787',
-        license: 'GPL-3.0'
+        name: pkg.name,
+        version: pkg.version,
+        author: pkg.author,
+        license: pkg.license
     },
     fetch: async (path, json) => {
         if (json) {
