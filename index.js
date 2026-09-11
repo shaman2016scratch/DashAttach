@@ -1,6 +1,6 @@
 import { singinDash, getSessionDash, getDashUser, getDashProject, getOffset } from "./src/help/apis.js"
 import { DashAttachData, setDashAttachData } from "./src/help/data.js"
-import { pkg } from "./src/help/lib.cjs"
+import { pkg } from "./src/help/lib.js"
 import auth from "./src/components/auth.js"
 import info from "./src/components/information.js"
 import actions from "./src/components/actions.js"
