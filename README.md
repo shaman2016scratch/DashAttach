@@ -18,9 +18,23 @@ npm install dashattach@version
 # example:
 npm install dashattach@0.3.4
 ```
+For web:
+```HTML
+<!-- For last version -->
+<script src="https://raw.githubusercontent.com/shaman2016scratch/DashAttach/refs/heads/main-develop/lib/web.js" type="module"></script>
+<!-- For other versions -->
+<script src="https://raw.githubusercontent.com/shaman2016scratch/DashAttach/refs/heads/{version}/lib/web.js" type="module"></script>
+<!-- For dev version -->
+<script src="https://raw.githubusercontent.com/shaman2016scratch/DashAttach/refs/heads/develop/lib/web.js" type="module"></script>
+```
 ```JavaScript (ESM)
 import DashAttach from "dashattach"
 ```
+Using in web:
+    window.DashAttach - Main file
+    window.DashAttachPlus - DashAttachPlus
+    window.DashAttachInputs - inputs of DashAttach
+    window.DashAttachExamples - example users and projects
 ### Getting info of library
 ```JavaScript
 DashAttach.library.version // version of library.
