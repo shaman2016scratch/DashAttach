@@ -1,7 +1,7 @@
 # DashAttach
 Dashattach - library for interacting with the Dash API (Dash/Dashlocks - scratch mod, like turbowarp. dashblocks.org).
 
-Last version: [0.4.5](https://www.npmjs.com/package/dashattach/v/0.4.5)
+Last version: [0.4.6](https://www.npmjs.com/package/dashattach/v/0.4.6)
 
 npm: https://www.npmjs.com/package/dashattach
 
@@ -128,7 +128,7 @@ await DashAttach.actions.viewProject(id) // add view project
 await DashAttach.actions.markAllMessagesAsRead(id) // mark all messages as read
 await DashAttach.actions.uploadProject(buffer, filename, name, description) // upload project
 await DashAttach.actions.forkProject(buffer, filename, name, description, parentProjectId) // upload project fork
-await DashAttach.actions.setAvatarFrame(frame) // set avatar frame (enter frame name)
+await DashAttach.actions.setAvatarFrame(frame) // set avatar frame (enter frame name) !Only Dash Supporters!
 ```
 ### DBP (DashBlocks Project) files
 Note: files .dbp is .zip files
@@ -277,7 +277,7 @@ export default publishProject
 ```
 ### DashAttachPlus
 DashAttachPush - alternative for DashAttach
-Last version: 0.1.2
+Last version: 0.1.2.1
 #### Import
 ```JavaScript
 import DashAttachPlus from 'dashattach/plus'
