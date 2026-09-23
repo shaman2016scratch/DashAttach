@@ -85,6 +85,7 @@ await DashAttach.info.users.stats.following(user) // get count of all following 
 await DashAttach.info.users.stats.unreadMessages(user) // get count of unread messages of user. Return: number
 await DashAttach.info.users.buffer.avatar(user) // get buffer of avatar of user. Return: buffer
 await DashAttach.info.users.getActions(user, offset, limit) // get actions of user. Return: array
+await DashAttach.info.users.getAvatarFrame(user) // get avatar frame of user. Return: string or null
 /*
     Argument types:
     id = get info by id
@@ -127,6 +128,7 @@ await DashAttach.actions.viewProject(id) // add view project
 await DashAttach.actions.markAllMessagesAsRead(id) // mark all messages as read
 await DashAttach.actions.uploadProject(buffer, filename, name, description) // upload project
 await DashAttach.actions.forkProject(buffer, filename, name, description, parentProjectId) // upload project fork
+await DashAttach.actions.setAvatarFrame(frame) // set avatar frame (enter frame name)
 ```
 ### DBP (DashBlocks Project) files
 Note: files .dbp is .zip files

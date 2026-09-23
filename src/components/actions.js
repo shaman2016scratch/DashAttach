@@ -249,6 +249,22 @@ const actions = {
                 console.log("Please, login!")
                 return {}
             }
+        },
+        setAvatarFrame: async (id) => {
+            const imIsLogin = await checkIsLogin()
+            if (imIsLogin) {
+                const res = await (await fetch(`https://${DashAttachData.apiUrl}/set-avatar-frame`, {
+                    method: "POST",
+                    credentials: "include",
+                    body: {
+                        avatarFrame: id
+                    }
+                })).json()
+                return res
+            } else {
+                console.log("Please, login!")
+                return {}
+            }
         }
     }
 }

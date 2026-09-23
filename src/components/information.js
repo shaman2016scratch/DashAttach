@@ -105,6 +105,10 @@ const info = {
         getActions: async (user, offset, limit) => {
             const result = await getDashUserActions(user, getOffset(offset), limit)
             return result?.actions || []
+        },
+        getAvatarFrame: async (user) => {
+            const result = await getDashUser
+            return result?.profile.avatarFrame || null
         }
     },
     projects: {
