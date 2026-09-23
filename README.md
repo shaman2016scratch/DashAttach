@@ -33,7 +33,6 @@ import DashAttach from "dashattach"
 Using in web:
     window.DashAttach - Main file
     window.DashAttachPlus - DashAttachPlus
-    window.DashAttachInputs - inputs of DashAttach
     window.DashAttachExamples - example users and projects
 ### Getting info of library
 ```JavaScript
