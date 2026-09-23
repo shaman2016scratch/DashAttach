@@ -1,4 +1,4 @@
-// version: 0.1.2
+// version: 0.1.2.1
 
 import DashAttach from './index.js';
 
@@ -11,7 +11,7 @@ const DashAttachPlus = {
             returN.fires = await DashAttach.info.projects.stats.fires(id)
             returN.views = await DashAttach.info.projects.stats.views(id)
             returN.forksCount = await DashAttach.info.projects.stats.forks(id)
-            returN.forks = await DashAttach.info.projects.forks
+            returN.forks = await DashAttach.info.projects.forks(id)
             returN.author = {}
             returN.author.username = await DashAttach.info.projects.getAuthorUsername(id)
             returN.author.id = await DashAttach.info.projects.getAuthorId(id)
@@ -41,6 +41,8 @@ const DashAttachPlus = {
             returN.stats.followers = await DashAttach.info.users.stats.followers(user)
             returN.following = await DashAttach.info.users.getFollowing(user, 0, 40)
             returN.followers = await DashAttach.info.users.getFollowers(user, 0, 40)
+            returN.links = await DashAttach.info.users.getLinksinks(user)
+            returN.achievements = await DashAttach.info.users.getAchievements(user)
             return returN
         },
         avatar: async (id) => {
