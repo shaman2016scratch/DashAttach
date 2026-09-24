@@ -151,6 +151,8 @@ await DashAttach.dbp.target.getByName(dbp, name) // get class 'Tagret' by target
 await DashAttach.dbp.target.getByObject(dbp, index) // get class 'Tagret' by target object (object in dbp.targets.data). Return: Target
 await DashAttach.dbp.target.costumeFile(dbp, targetClass, costumeIndex) // Return: ArrayBuffer
 await DashAttach.dbp.target.soundFile(dbp, targetClass, soundIndex) // Return: ArrayBuffer
+await DashAttach.dbp.target.setCostumeFile(dbp, targetClass, costumeIndex, arraybuffer)
+await DashAttach.dbp.target.setSoundFile(dbp, targetClass, soundIndex, arraybuffer)
 await DashAttach.dbp.meta.vm(dbp) // get vm version
 await DashAttach.dbp.meta.agent(dbp) // get user agent of last project editor
 await DashAttach.dbp.meta.platform(dbp) /* Get Platform. Return: Object {
@@ -166,6 +168,7 @@ await DashAttach.dbp.extensionURLs(dbp) // get extensions urls. Return: object (
     buffer - buffer
     dbp - JSZip of Dash project
     extensionId - id of extension
+    arraybuffer - ArrayBuffer-content
 */
 ```
 #### Class 'Target'

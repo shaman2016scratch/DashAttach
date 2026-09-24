@@ -121,6 +121,16 @@ const dbp = {
             const sound = sounds[index]
             const soundBuffer = await Zip.getFileAsArrayBuffer(dbp, sound.md5ext)
             return soundBuffer
+        },
+        setCostumeFile: async (dbp, clasS, index, costumeF) => {
+            const costumes = clasS.costumes
+            const costume = costumes[index]
+            await Zip.setFile(dbp, costume.md5ext, ArrayBuffer(costumeF))
+        },
+        setSoundFile: async (dbp, clasS, index, soundF) => {
+            const sounds = clasS.sounds
+            const sound = sounds[index]
+            await Zip.setFile(dbp, sound.md5ext, ArrayBuffer(soundF))
         }
     },
     meta: {
