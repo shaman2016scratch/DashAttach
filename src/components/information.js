@@ -190,6 +190,36 @@ const info = {
         getOwner: async (studio) => {
             const result = await getDashStudio(studio)
             return result?.studio?.owner || {}
+        },
+        getDescription: async (studio) => {
+            const result = await getDashStudio(studio)
+            return result?.studio?.description || ""
+        },
+        getAllowProjects: async (studio) => {
+            const result = await getDashStudio(studio)
+            return result?.studio?.allowProjects || false
+        },
+        createdAt: async (studio) => {
+            const result = await getDashStudio(studio)
+            return result?.studio?.createdAt || new Date()
+        },
+        updatedAt: async (studio) => {
+            const result = await getDashStudio(studio)
+            return result?.studio?.updatedAt || new Date()
+        },
+        getTrumbnailId: async (studio) => {
+            const result = await getDashStudio(studio)
+            return result?.studio?.trumbnailId || 1
+        },
+        getTrumbnailURL: async (studio) => {
+            const result = await getDashStudio(studio)
+            return `https://${DashAttachData.apiUrl}://studios/trumbnails/${result?.studio?.trumbnailId || 1}`
+        },
+        stats: {
+            projects: async (studio) => {
+                const result = await getDashStudio(studio)
+                return result?.studio?.projectsCount || 0
+            }
         }
     }
 }

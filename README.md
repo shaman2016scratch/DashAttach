@@ -117,6 +117,13 @@ await DashAttach.info.studios.getProjects(id) // get project of studio. Return: 
 await DashAttach.info.studios.getOwnerId(id) // get owner id of studio. Return: number
 await DashAttach.info.studios.getOwnerUsername(id) // get owner username of studio. Return: string
 await DashAttach.info.studios.getOwner(id) // get owner of studio. Return: object ({ id: number, username: stirng, avatarId: number })
+await DashAttach.info.studios.getDescription(id) // get description of studio. Return: stirng
+await DashAttach.info.studios.getAllowProjects(id) // Return: boolean
+await DashAttach.info.studios.createdAt(id) // Return: date/string
+await DashAttach.info.studios.updatedAt(id) // Return: date/string
+await DashAttach.info.studios.trumbnailId(id) // Return: number
+await DashAttach.info.studios.trumbnailURL(id) // Return: string
+await DashAttach.info.studios.stats.projects(id) // Return: number
 ```
 ### Actions
 ```JavaScript
