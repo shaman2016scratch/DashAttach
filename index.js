@@ -1,4 +1,4 @@
-import { singinDash, getSessionDash, getDashUser, getDashProject, getOffset } from "./src/help/apis.js"
+import { getOffset, getLimit } from "./src/help/apis.js"
 import { DashAttachData, setDashAttachData } from "./src/help/data.js"
 import { pkg } from "./src/help/lib.js"
 import auth from "./src/components/auth.js"
@@ -9,10 +9,9 @@ import dev from "./src/components/dev/index.js"
 
 const DashAttach = {
     featuredProjects: async (offset, limit) => {
-        offset = offset || DashAttachData.defaultValues.offset
         offset = getOffset(offset)
-        limit = limit || DashAttachData.defaultValues.limit
-        const result = await (await fetch(`https://${DashAttachData.apiUrl}/featured-projects?offset=${+offset || 0}&limit=${+limit || 5}`)).json()
+        limit = getLimit(limit)
+        const result = await (await fetch(`https://${DashAttachData.apiUrl}/featured-projects?offset=${offset}&limit=${limit}`)).json()
         return result.projects
     },
     auth,
@@ -21,10 +20,9 @@ const DashAttach = {
     dev,
     search: {
         projects: async (q, offset, limit) => {
-            offset = offset || DashAttachData.defaultValues.offset
             offset = getOffset(offset)
-            limit = limit || DashAttachData.defaultValues.limit
-            const result = await (await fetch(`https://${DashAttachData.apiUrl}/search/projects?offset=${+offset || 0}&limit=${+limit || 5}&q=${q}`)).json()
+            limit = getLimit(limit)
+            const result = await (await fetch(`https://${DashAttachData.apiUrl}/search/projects?offset=${offset}&limit=${limit}&q=${q}`)).json()
             return result.results
         },
         projectsCount: async (q) => {
