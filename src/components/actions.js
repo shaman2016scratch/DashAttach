@@ -265,6 +265,39 @@ const actions = {
                 console.log("Please, login!")
                 return {}
             }
+        },
+        addProjectToStudio: async (studio, id) => {
+            const imIsLogin = await checkIsLogin()
+            if (imIsLogin) {
+                const res = await (await fetch(`https://${DashAttachData.apiUrl}/studios/${studio}/projects`, {
+                    method: "POST",
+                    credentials: "include",
+                    body: {
+                        projectId: id
+                    }
+                })).json()
+                return res
+            } else {
+                console.log("Please, login!")
+                return {}
+            }
+        },
+        createStudio: async (name, description) => {
+            const imIsLogin = await checkIsLogin()
+            if (imIsLogin) {
+                const res = await (await fetch(`https://${DashAttachData.apiUrl}/studios`, {
+                    method: "POST",
+                    credentials: "include",
+                    body: {
+                        name,
+                        description
+                    }
+                })).json()
+                return res
+            } else {
+                console.log("Please, login!")
+                return {}
+            }
         }
     }
 }

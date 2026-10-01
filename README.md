@@ -144,6 +144,8 @@ await DashAttach.actions.markAllMessagesAsRead(id) // mark all messages as read
 await DashAttach.actions.uploadProject(buffer, filename, name, description) // upload project
 await DashAttach.actions.forkProject(buffer, filename, name, description, parentProjectId) // upload project fork
 await DashAttach.actions.setAvatarFrame(frame) // set avatar frame (enter frame name) !Only Dash Supporters!
+await DashAttach.actions.addProjectToStudio(studio, project)
+await DashAttach.actions.createStudio(name, description)
 ```
 ### DBP (DashBlocks Project) files
 Note: files .dbp is .zip files
