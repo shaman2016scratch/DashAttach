@@ -175,5 +175,6 @@ export {
     getDashProjectForks,
     getOffset,
     getDashStudio,
-    getDashStudioProjects
+    getDashStudioProjects,
+    getLimit
 }
