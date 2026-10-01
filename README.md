@@ -110,6 +110,14 @@ DashAttach.info.projects.getFileURL(id) // get file url of project. Return: stri
 await DashAttach.info.projects.buffer.dbp(id) // get buffer of project file. Return: buffer
 await DashAttach.info.projects.buffer.trumbnail(id) // get buffer of trumbnail of project. Return: buffer
 ```
+### Get studio information
+```JavaScript
+await DashAttach.info.studios.getName(id) // get name of studio. Return: string
+await DashAttach.info.studios.getProjects(id) // get project of studio. Return: array
+await DashAttach.info.studios.getOwnerId(id) // get owner id of studio. Return: number
+await DashAttach.info.studios.getOwnerUsername(id) // get owner username of studio. Return: string
+await DashAttach.info.studios.getOwner(id) // get owner of studio. Return: object ({ id: number, username: stirng, avatarId: number })
+```
 ### Actions
 ```JavaScript
 await DashAttach.actions.setDescription(description) // set my description

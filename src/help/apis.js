@@ -135,7 +135,21 @@ const getOffset = offset => {
     offset = offset || DashAttachData.defaultValues.offset
     if (offset > DashAttachData.maxOffset) offset = DashAttachData.maxOffset
     if (offset < DashAttachData.minOffset) offset = DashAttachData.minOffset
-    return offset
+    return Number(offset)
+}
+
+const getDashStudio = async (studio) => {
+    const req = await fetch(`https://${DashAttachData.apiUrl}/studios/${studio}`)
+    const res = await req.json()
+    return res
+}
+
+const getDashStudioProjects = async (studio, offset, limit) => {
+    offset = getOffset(offset)
+    limit = limit || DashAttachData.defaultValues.limit
+    const req = await fetch(`https://${DashAttachData.apiUrl}/studios/${studio}/projects?offset=${offset}&limit=${limit}`)
+    const res = await req.json()
+    return res
 }
 
 export {
@@ -152,5 +166,7 @@ export {
     logoutDash,
     getDashUserActions,
     getDashProjectForks,
-    getOffset
+    getOffset,
+    getDashStudio,
+    getDashStudioProjects
 }

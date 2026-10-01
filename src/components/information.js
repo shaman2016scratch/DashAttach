@@ -6,7 +6,9 @@ import {
     getDashUserFollowing,
     getDashUserActions,
     getDashProjectForks,
-    getOffset
+    getOffset,
+    getDashStudio,
+    getDashStudioProjects
 } from "../help/apis.js"
 import { DashAttachData } from "../help/data.js"
 
@@ -166,6 +168,28 @@ const info = {
         getForks: async (project, offset, limit) => {
             const result = await getDashProjectForks(project, getOffset(offset), limit)
             return result || []
+        }
+    },
+    studios: {
+        getName: async (studio) => {
+            const result = await getDashStudio(studio)
+            return result?.studio?.name || ""
+        },
+        getProjects: async (studio, offset, limit) => {
+            const result = await getDashStudioProjects(studio, offset, limit)
+            return result?.projects || []
+        },
+        getOwnerId: async (studio) => {
+            const result = await getDashStudio(studio)
+            return result?.studio?.owner.id || 0
+        },
+        getOwnerUsername: async (studio) => {
+            const result = await getDashStudio(studio)
+            return result?.studio?.owner.username || ""
+        },
+        getOwner: async (studio) => {
+            const result = await getDashStudio(studio)
+            return result?.studio?.owner || {}
         }
     }
 }
