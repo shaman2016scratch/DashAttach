@@ -7,7 +7,9 @@ const DashAttachDataDefault = {
         offset: 0,
         limit: 20
     },
-    maxOffset: 40,
+    maxLimit: 40,
+    minLimit: 0,
+    maxOffset: Infinity,
     minOffset: 0
 }
 

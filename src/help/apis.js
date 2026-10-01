@@ -63,7 +63,7 @@ const getDashProject = async (project) => {
 
 const getDashUserProjects = async (user, offset, limit) => {
     offset = getOffset(offset)
-    limit = limit || DashAttachData.defaultValues.limit
+    limit = getLimit(limit)
     const req = await fetch(`https://${DashAttachData.apiUrl}/users/${user}/projects?offset=${offset}&limit=${limit}`)
     const res = await req.json()
     return res.projects
@@ -71,7 +71,7 @@ const getDashUserProjects = async (user, offset, limit) => {
 
 const getDashUserFollowers = async (user, offset, limit) => {
     offset = getOffset(offset)
-    limit = limit || DashAttachData.defaultValues.limit
+    limit = getLimit(limit)
     const req = await fetch(`https://${DashAttachData.apiUrl}/users/${user}/followers?offset=${offset}&limit=${limit}`)
     const res = await req.json()
     return res.followers
@@ -79,7 +79,7 @@ const getDashUserFollowers = async (user, offset, limit) => {
 
 const getDashUserFollowing = async (user, offset, limit) => {
     offset = getOffset(offset)
-    limit = limit || DashAttachData.defaultValues.limit
+    limit = getLimit(limit)
     const req = await fetch(`https://${DashAttachData.apiUrl}/users/${user}/following?offset=${offset}&limit=${limit}`)
     const res = await req.json()
     return res.following
@@ -87,7 +87,7 @@ const getDashUserFollowing = async (user, offset, limit) => {
 
 const getSessionMessagesDash = async (offset, limit) => {
     offset = getOffset(offset)
-    limit = limit || DashAttachData.defaultValues.limit
+    limit = getLimit(limit)
     const req = await fetch(`https://${DashAttachData.apiUrl}/session/messages?offset=${offset}&limit=${limit}`, {
         credentials: "include"
     })
@@ -97,7 +97,7 @@ const getSessionMessagesDash = async (offset, limit) => {
 
 const getSessionActivityDash = async (offset, limit) => {
     offset = getOffset(offset)
-    limit = limit || DashAttachData.defaultValues.limit
+    limit = getLimit(limit)
     const req = await fetch(`https://${DashAttachData.apiUrl}/session/activity?offset=${offset}&limit=${limit}`, {
         credentials: "include"
     })
@@ -115,7 +115,7 @@ const logoutDash = async () => {
 
 const getDashUserActions = async (user, offset, limit) => {
     offset = getOffset(offset)
-    limit = limit || DashAttachData.defaultValues.limit
+    limit = getLimit(limit)
     const req = await fetch(`https://${DashAttachData.apiUrl}/users/${user}/actions?offset=${offset}&limit=${limit}`, {
         credentials: "include"
     })
@@ -125,7 +125,7 @@ const getDashUserActions = async (user, offset, limit) => {
 
 const getDashProjectForks = async (project, offset, limit) => {
     offset = getOffset(offset)
-    limit = limit || DashAttachData.defaultValues.limit
+    limit = getLimit(limit)
     const req = await fetch(`https://${DashAttachData.apiUrl}/projects/${project}/forks?offset=${offset}&limit=${limit}`)
     const res = await req.json()
     return res
@@ -146,10 +146,17 @@ const getDashStudio = async (studio) => {
 
 const getDashStudioProjects = async (studio, offset, limit) => {
     offset = getOffset(offset)
-    limit = limit || DashAttachData.defaultValues.limit
+    limit = getLimit(limit)
     const req = await fetch(`https://${DashAttachData.apiUrl}/studios/${studio}/projects?offset=${offset}&limit=${limit}`)
     const res = await req.json()
     return res
+}
+
+var getLimit = limit => {
+    limit = limit || DashAttachData.defaultValues.limit
+    if (limit > DashAttachData.maxLimit) limit = DashAttachData.maxLimit
+    if (limit < DashAttachData.minLimit) limit = DashAttachData.minLimit
+    return Number(limit)
 }
 
 export {
