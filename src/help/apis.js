@@ -197,7 +197,7 @@ const editDashProject = async (id, name, description, file) => {
 const getDashProjectStudios = async (id, offset, limit) => {
     offset = getOffset(offset)
     limit = getLimit(limit)
-    const req = await DashFetch(`/projects/${id}/studio?offset=${offset}&limit=${limit}`, {
+    const req = await DashFetch(`/projects/${id}/studios?offset=${offset}&limit=${limit}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json'
@@ -211,7 +211,7 @@ const getDashProjectStudios = async (id, offset, limit) => {
 const getDashUserStudios = async (id, offset, limit) => {
     offset = getOffset(offset)
     limit = getLimit(limit)
-    const req = await DashFetch(`/users/${id}/studio?offset=${offset}&limit=${limit}`, {
+    const req = await DashFetch(`/users/${id}/studios?offset=${offset}&limit=${limit}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json'

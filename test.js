@@ -3,9 +3,9 @@ import DashAttach from "./index.js";
 console.log(`${DashAttach.library.name} v${DashAttach.library.version} tests`)
 
 async function tests() {
-	console.log(await DashAttach.info.users.getRole(7))
-	console.log(await DashAttach.info.users.getId(7))
-	console.log(await DashAttach.info.users.getUsername(7))
+	console.log(await DashAttach.info.users.getRole(17))
+	console.log(await DashAttach.info.users.getId(17))
+	console.log(await DashAttach.info.users.getUsername(17))
 	console.log(await DashAttach.info.projects.getAuthorUsername(576))
 	console.log(await DashAttach.info.projects.getAuthorId(576))
 	console.log(await DashAttach.featuredProjects(0, 5))
@@ -23,5 +23,6 @@ async function tests() {
 	const lists = await stage.listObj()
 	const fileDataList = lists["file data"]
 	console.log(stage.boardcasts)
+	console.log(await DashAttach.info.users.getStudios(15))
 }
 tests()
