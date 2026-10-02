@@ -8,7 +8,9 @@ import {
     getDashProjectForks,
     getOffset,
     getDashStudio,
-    getDashStudioProjects
+    getDashStudioProjects,
+    getDashProjectStudios,
+    getDashUserStudios
 } from "../help/apis.js"
 import { DashAttachData } from "../help/data.js"
 
@@ -93,6 +95,10 @@ const info = {
             unreadMessages: async (user) => {
                 const result = await getDashUser(user)
                 return result?.profile?.unreadMessages || 0
+            },
+            studios: async (user) => {
+                const result = await getDashUser(user)
+                return result?.profile?.stats?.studios || 0
             }
         },
         buffer: {
@@ -111,6 +117,10 @@ const info = {
         getAvatarFrame: async (user) => {
             const result = await getDashUser
             return result?.profile.avatarFrame || null
+        },
+        getStudios: async (user, offset, limit) => {
+            const result = await getDashUserStudios(user, offset, limit)
+            return result || []
         }
     },
     projects: {
@@ -145,6 +155,10 @@ const info = {
             forks: async (project) => {
                 const result = await getDashProject(project)
                 return result?.stats?.forks || 0
+            },
+            studios: async (project) => {
+                const result = await getDashProject(project)
+                return result?.stats?.studios || 0
             }
         },
         getFileURL: (project) => {
@@ -166,7 +180,11 @@ const info = {
             }
         },
         getForks: async (project, offset, limit) => {
-            const result = await getDashProjectForks(project, getOffset(offset), limit)
+            const result = await getDashProjectForks(project, offset, limit)
+            return result || []
+        },
+        getStudios: async (project, offset, limit) => {
+            const result = await getDashProjectStudios(project, offset, limit)
             return result || []
         }
     },

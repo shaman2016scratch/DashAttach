@@ -128,7 +128,7 @@ const getDashProjectForks = async (project, offset, limit) => {
     limit = getLimit(limit)
     const req = await fetch(`https://${DashAttachData.apiUrl}/projects/${project}/forks?offset=${offset}&limit=${limit}`)
     const res = await req.json()
-    return res
+    return res.forks
 }
 
 var getOffset = offset => {
@@ -194,6 +194,34 @@ const editDashProject = async (id, name, description, file) => {
     return res
 }
 
+const getDashProjectStudios = async (id, offset, limit) => {
+    offset = getOffset(offset)
+    limit = getLimit(limit)
+    const req = await DashFetch(`/projects/${id}/studio?offset=${offset}&limit=${limit}`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        credentials: 'include'
+    })
+    const res = await req.json()
+    return res.studios
+}
+
+const getDashUserStudios = async (id, offset, limit) => {
+    offset = getOffset(offset)
+    limit = getLimit(limit)
+    const req = await DashFetch(`/users/${id}/studio?offset=${offset}&limit=${limit}`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        credentials: 'include'
+    })
+    const res = await req.json()
+    return res.studios
+}
+
 export {
     checkIsLogin,
     singinDash,
@@ -214,5 +242,7 @@ export {
     getLimit,
     editDashProjectMetadata,
     DashFetch,
-    editDashProject
+    editDashProject,
+    getDashProjectStudios,
+    getDashUserStudios
 }

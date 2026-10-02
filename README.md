@@ -82,10 +82,12 @@ await DashAttach.info.users.getAvatar(user) // get avatar url of user. Return: s
 await DashAttach.info.users.stats.projects(user) // get count of all projects of user. Return: number
 await DashAttach.info.users.stats.followers(user) // get count of all followers of user. Return: number
 await DashAttach.info.users.stats.following(user) // get count of all following of user. Return: number
+await DashAttach.info.users.stats.studios(user) // Return: number
 await DashAttach.info.users.stats.unreadMessages(user) // get count of unread messages of user. Return: number
 await DashAttach.info.users.buffer.avatar(user) // get buffer of avatar of user. Return: buffer
 await DashAttach.info.users.getActions(user, offset, limit) // get actions of user. Return: array
 await DashAttach.info.users.getAvatarFrame(user) // get avatar frame of user. Return: string or null
+await DashAttach.info.users.getStudios(user, offset, limit) // Return: array
 /*
     Argument types:
     id = get info by id
@@ -105,10 +107,12 @@ await DashAttach.info.projects.getTrumbnail(id) // get trumbnail url of project.
 await DashAttach.info.projects.stats.fires(id) // get fires of project. Return: number
 await DashAttach.info.projects.stats.views(id) // get views of project. Return: number
 await DashAttach.info.projects.stats.forks(id) // get forks count of project. Return: number
-await DashAttach.info.projects.getForks(id, offset, limit) // get forks of project. Return: array
+await DashAttach.info.projects.stats.studios(id) // Return: number
 DashAttach.info.projects.getFileURL(id) // get file url of project. Return: string
 await DashAttach.info.projects.buffer.dbp(id) // get buffer of project file. Return: buffer
 await DashAttach.info.projects.buffer.trumbnail(id) // get buffer of trumbnail of project. Return: buffer
+await DashAttach.info.projects.getForks(id, offset, limit) // get forks of project. Return: array
+await DashAttach.info.peojects.getStudios(id, offset, limit) // Return: array
 ```
 ### Get studio information
 ```JavaScript
