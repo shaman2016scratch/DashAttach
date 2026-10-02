@@ -168,6 +168,13 @@ const editDashProjectMetadata = async (id, name, description) => {
         body: JSON.stringify({description, name}),
         credentials: 'include'
     })
+    const res = await req.json()
+    return res
+}
+
+var DashFetch = (path, json) => {
+    const req = fetch(`https://${DashAttachData.apiUrl}${path}`, json)
+    return req
 }
 
 export {
@@ -188,5 +195,6 @@ export {
     getDashStudio,
     getDashStudioProjects,
     getLimit,
-    editDashProjectMetadata
+    editDashProjectMetadata,
+    DashFetch
 }
