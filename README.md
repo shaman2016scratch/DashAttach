@@ -1,7 +1,7 @@
 # DashAttach
 Dashattach - library for interacting with the Dash API (Dash/Dashlocks - scratch mod, like turbowarp. dashblocks.org).
 
-Last version: [0.5.0](https://www.npmjs.com/package/dashattach/v/0.5.0)
+Last version: [0.5.1](https://www.npmjs.com/package/dashattach/v/0.5.1)
 
 npm: https://www.npmjs.com/package/dashattach
 
