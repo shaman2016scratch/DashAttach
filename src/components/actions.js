@@ -1,4 +1,4 @@
-import { getSessionDash, editDashProjectMetadata, checkIsLogin, getDashProject } from "../help/apis.js"
+import { getSessionDash, editDashProjectMetadata, checkIsLogin, getDashProject, editDashProject } from "../help/apis.js"
 import { DashAttachData } from "../help/data.js"
 import FormData from 'form-data';
 
@@ -306,6 +306,7 @@ const actions = {
             if (imIsLogin) {
                 const project = await getDashProject(id)
                 const res = await editDashProjectMetadata(id, project?.name, description)
+                return res
             } else {
                 console.log("Please, login!")
                 return {}
@@ -316,6 +317,18 @@ const actions = {
             if (imIsLogin) {
                 const project = await getDashProject(id)
                 const res = await editDashProjectMetadata(id, name, project?.description)
+                return res
+            } else {
+                console.log("Please, login!")
+                return {}
+            }
+        },
+        editProjectFile: async (id, file) => {
+            const imIsLogin = await checkIsLogin()
+            if (imIsLogin) {
+                const project = await getDashProject(id)
+                const res = await editDashProject(id, project?.name, project?.description, file)
+                return res
             } else {
                 console.log("Please, login!")
                 return {}

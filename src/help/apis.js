@@ -177,6 +177,23 @@ var DashFetch = (path, json) => {
     return req
 }
 
+const editDashProject = async (id, name, description, file) => {
+    const filename = `${name}.dbp`
+    BODY.append('file', file, { filename })
+    BODY.append('name', name.toString())
+    BODY.append('description', description.toString())
+    const req = await fetch(`https://${DashAttachData.apiUrl}/projects/${id}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: BODY,
+        credentials: 'include'
+    })
+    const res = await req.json()
+    return res
+}
+
 export {
     checkIsLogin,
     singinDash,
@@ -196,5 +213,6 @@ export {
     getDashStudioProjects,
     getLimit,
     editDashProjectMetadata,
-    DashFetch
+    DashFetch,
+    editDashProject
 }

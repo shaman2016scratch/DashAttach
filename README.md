@@ -148,6 +148,7 @@ await DashAttach.actions.addProjectToStudio(studio, project)
 await DashAttach.actions.createStudio(name, description)
 await DashAttach.actions.editProjectDescription(id, description)
 await DashAttach.actions.editProjectName(id, name)
+await DashAttach.actions.editProjectFile(id, file)
 ```
 ### DBP (DashBlocks Project) files
 Note: files .dbp is .zip files
@@ -363,7 +364,7 @@ await DashAttachPlus.users.avatar(user) /*
 #### Help for components
 ```JavaScript
 // Importing
-import { checkIsLogin, singinDash, getSessionDash, getDashUser, getDashProject, getDashUserProjects, getDashUserFollowers, getDashUserFollowing, getSessionMessagesDash, getSessionActivityDash, logoutDash, getDashUserActions, getDashProjectForks, getOffset, getDashStudio, getDashStudioProjects, getLimit, editDashProjectMetadata, DashFetch } from 'dashattach/src/help/apis.js'
+import { checkIsLogin, singinDash, getSessionDash, getDashUser, getDashProject, getDashUserProjects, getDashUserFollowers, getDashUserFollowing, getSessionMessagesDash, getSessionActivityDash, logoutDash, getDashUserActions, getDashProjectForks, getOffset, getDashStudio, getDashStudioProjects, getLimit, editDashProjectMetadata, DashFetch, editDashProject } from 'dashattach/src/help/apis.js'
 import { DashAttachData, setDashAttachData } from 'dashattach/src/help/data.js'
 import Zip, { generateZip, loadZipFromURL, loadZipFromBase64, loadZipFromBuffer, getFileInZip, setFileInZip } from 'dashattach/src/help/zip.js'
 import SB3, { Target, Stage, Block } from 'dashattach/src/help/sb3.js'
