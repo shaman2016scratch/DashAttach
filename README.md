@@ -146,6 +146,8 @@ await DashAttach.actions.forkProject(buffer, filename, name, description, parent
 await DashAttach.actions.setAvatarFrame(frame) // set avatar frame (enter frame name) !Only Dash Supporters!
 await DashAttach.actions.addProjectToStudio(studio, project)
 await DashAttach.actions.createStudio(name, description)
+await DashAttach.actions.editProjectDescription(id, description)
+await DashAttach.actions.editProjectName(id, name)
 ```
 ### DBP (DashBlocks Project) files
 Note: files .dbp is .zip files

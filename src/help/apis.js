@@ -159,6 +159,17 @@ var getLimit = limit => {
     return Number(limit)
 }
 
+const editDashProjectMetadata = async (id, name, description) => {
+    const req = await fetch(`https://${DashAttachData.apiUrl}/projects/${id}`, {
+        method: 'PATCH',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({description, name}),
+        credentials: 'include'
+    })
+}
+
 export {
     checkIsLogin,
     singinDash,
@@ -176,5 +187,6 @@ export {
     getOffset,
     getDashStudio,
     getDashStudioProjects,
-    getLimit
+    getLimit,
+    editDashProjectMetadata
 }

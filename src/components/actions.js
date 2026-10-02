@@ -1,4 +1,4 @@
-import { getSessionDash, checkIsLogin } from "../help/apis.js"
+import { getSessionDash, editDashProjectMetadata, checkIsLogin, getDashProject } from "../help/apis.js"
 import { DashAttachData } from "../help/data.js"
 import FormData from 'form-data';
 
@@ -214,6 +214,7 @@ const actions = {
             }
         },
         uploadProject: async (file, filename, name, description) => {
+            filename = filename || `${name}.dbp`
             const imIsLogin = await checkIsLogin()
             if (imIsLogin) {
                 const BODY = new FormData()
@@ -232,6 +233,7 @@ const actions = {
             }
         },
         forkProject: async (file, filename, name, description, parent) => {
+            filename = filename || `${name}.dbp`
             const imIsLogin = await checkIsLogin()
             if (imIsLogin) {
                 const BODY = new FormData()
@@ -294,6 +296,26 @@ const actions = {
                     }
                 })).json()
                 return res
+            } else {
+                console.log("Please, login!")
+                return {}
+            }
+        },
+        editProjectDescription: async (id, description) => {
+            const imIsLogin = await checkIsLogin()
+            if (imIsLogin) {
+                const project = await getDashProject(id)
+                const res = await editDashProjectMetadata(id, project?.name, description)
+            } else {
+                console.log("Please, login!")
+                return {}
+            }
+        },
+        editProjectName: async (id, name) => {
+            const imIsLogin = await checkIsLogin()
+            if (imIsLogin) {
+                const project = await getDashProject(id)
+                const res = await editDashProjectMetadata(id, name, project?.description)
             } else {
                 console.log("Please, login!")
                 return {}
