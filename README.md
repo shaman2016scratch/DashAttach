@@ -238,9 +238,11 @@ block.pos // array of block position ([x,y])
 ```
 ### Other
 ```JavaScript
-await DashAttach.featuredProjects(offset, limit) // get featured projects. Return: array. Max limit: 40
-await DashAttach.search.projects(q, offset, limit) // search projects in Dash. Return: array. Max limit: 40
+await DashAttach.featuredProjects(offset, limit) // get featured projects. Return: array.
+await DashAttach.search.projects(q, offset, limit) // search projects in Dash. Return: array.
 await DashAttach.search.projectsCount(q) // count of all projects of search projects. Return: number.
+await DashAttach.search.studios(q, offset, limit) // Return: array.
+await DashAttach.search.studiosCount(q) // Return: number.
 DashAttach.setProxy(url) // set proxy for api. CREATED TO WORK AROUND CORS FOR BROWSER USE.
 await DashAttach.fetch(path, json) // http-requests to Dash API with path and json. json optional
 DashAttach.removeProxy() // delete proxy

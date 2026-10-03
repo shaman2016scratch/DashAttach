@@ -28,6 +28,16 @@ const DashAttach = {
         projectsCount: async (q) => {
             const result = await (await fetch(`https://${DashAttachData.apiUrl}/search/projects?q=${q}`)).json()
             return result.total
+        },
+        studios: async (q, offset, limit) => {
+            offset = getOffset(offset)
+            limit = getLimit(limit)
+            const result = await (await fetch(`https://${DashAttachData.apiUrl}/search/studios?offset=${offset}&limit=${limit}&q=${q}`)).json()
+            return result.results
+        },
+        studiosCount: async (q, offset, limit) => {
+            const result = await (await fetch(`https://${DashAttachData.apiUrl}/search/studios?offset=${offset}&limit=${limit}&q=${q}`)).json()
+            return result.total
         }
     },
     setProxy: (url) => {
