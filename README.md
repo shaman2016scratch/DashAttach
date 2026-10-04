@@ -238,14 +238,16 @@ block.pos // array of block position ([x,y])
 ```
 ### Other
 ```JavaScript
-await DashAttach.featuredProjects(offset, limit) // get featured projects. Return: array.
-await DashAttach.search.projects(q, offset, limit) // search projects in Dash. Return: array.
-await DashAttach.search.projectsCount(q) // count of all projects of search projects. Return: number.
+await DashAttach.featuredProjects(offset, limit) // Return: array.
+await DashAttach.search.projects(q, offset, limit) // Return: array.
+await DashAttach.search.projectsCount(q) // Return: number.
 await DashAttach.search.studios(q, offset, limit) // Return: array.
 await DashAttach.search.studiosCount(q) // Return: number.
 DashAttach.setProxy(url) // set proxy for api. CREATED TO WORK AROUND CORS FOR BROWSER USE.
 await DashAttach.fetch(path, json) // http-requests to Dash API with path and json. json optional
 DashAttach.removeProxy() // delete proxy
+await DashAttach.featuredStudios(offset, limit) // Return: array.
+await DashAttach.latestProjects(offset, limit) // Return: array.
 ```
 ### CORS
 CORS Dash API: localhost:3000 and dashblocks.org.

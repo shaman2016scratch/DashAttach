@@ -11,7 +11,7 @@ const DashAttach = {
     featuredProjects: async (offset, limit) => {
         offset = getOffset(offset)
         limit = getLimit(limit)
-        const result = await (await fetch(`https://${DashAttachData.apiUrl}/featured-projects?offset=${offset}&limit=${limit}`)).json()
+        const result = await (await fetch(`https://${DashAttachData.apiUrl}/featured/projects?offset=${offset}&limit=${limit}`)).json()
         return result.projects
     },
     auth,
@@ -70,6 +70,18 @@ const DashAttach = {
         cacheDashAttachData.useProxy = false
         setDashAttachData(cacheDashAttachData)
     },
+    featuredStudios: async (offset, limit) => {
+        offset = getOffset(offset)
+        limit = getLimit(limit)
+        const result = await (await fetch(`https://${DashAttachData.apiUrl}/featured/studios?offset=${offset}&limit=${limit}`)).json()
+        return result.studios
+    },
+    latestProjects: async (offset, limit) => {
+        offset = getOffset(offset)
+        limit = getLimit(limit)
+        const result = await (await fetch(`https://${DashAttachData.apiUrl}/projects/latest?offset=${offset}&limit=${limit}`)).json()
+        return result.projects
+    }
 }
 
 export default DashAttach
