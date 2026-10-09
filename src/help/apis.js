@@ -10,7 +10,6 @@ const checkIsLogin = async () => {
         returN = true
         let cacheDashAttachData = DashAttachData
         cacheDashAttachData.isLogin = true
-        cacheDashAttachData.session.user = res?.user?.id
         setDashAttachData(cacheDashAttachData)
     }
     return returN
@@ -43,7 +42,6 @@ const getSessionDash = async () => {
     if (req.ok) {
         let cacheDashAttachData = DashAttachData
         cacheDashAttachData.isLogin = true
-        cacheDashAttachData.session.user = res?.user?.id
         setDashAttachData(cacheDashAttachData)
     }
     return res
