@@ -34,6 +34,7 @@ Using in web:
     window.DashAttach - Main file
     window.DashAttachPlus - DashAttachPlus
     window.DashAttachExamples - example users and projects
+    window.DashAttachHelp - for developers
 ### Getting info of library
 ```JavaScript
 DashAttach.library.version // version of library.
