@@ -62,7 +62,7 @@ const getDashProject = async (project) => {
 const getDashUserProjects = async (user, offset, limit) => {
     offset = getOffset(offset)
     limit = getLimit(limit)
-    const req = await fetch(`https://${DashAttachData.apiUrl}/users/${user}/projects?offset=${offset}&limit=${limit}`)
+    const req = await fetch(`https://${DashAttachData.apiUrl}/users/profiles/${user}/projects?offset=${offset}&limit=${limit}`)
     const res = await req.json()
     return res.projects
 }
@@ -70,7 +70,7 @@ const getDashUserProjects = async (user, offset, limit) => {
 const getDashUserFollowers = async (user, offset, limit) => {
     offset = getOffset(offset)
     limit = getLimit(limit)
-    const req = await fetch(`https://${DashAttachData.apiUrl}/users/${user}/followers?offset=${offset}&limit=${limit}`)
+    const req = await fetch(`https://${DashAttachData.apiUrl}/users/profiles/${user}/followers?offset=${offset}&limit=${limit}`)
     const res = await req.json()
     return res.followers
 }
@@ -78,7 +78,7 @@ const getDashUserFollowers = async (user, offset, limit) => {
 const getDashUserFollowing = async (user, offset, limit) => {
     offset = getOffset(offset)
     limit = getLimit(limit)
-    const req = await fetch(`https://${DashAttachData.apiUrl}/users/${user}/following?offset=${offset}&limit=${limit}`)
+    const req = await fetch(`https://${DashAttachData.apiUrl}/users/profiles/${user}/following?offset=${offset}&limit=${limit}`)
     const res = await req.json()
     return res.following
 }
@@ -114,7 +114,7 @@ const logoutDash = async () => {
 const getDashUserActions = async (user, offset, limit) => {
     offset = getOffset(offset)
     limit = getLimit(limit)
-    const req = await fetch(`https://${DashAttachData.apiUrl}/users/${user}/actions?offset=${offset}&limit=${limit}`, {
+    const req = await fetch(`https://${DashAttachData.apiUrl}/users/profiles/${user}/actions?offset=${offset}&limit=${limit}`, {
         credentials: "include"
     })
     const res = await req.json()
@@ -209,7 +209,7 @@ const getDashProjectStudios = async (id, offset, limit) => {
 const getDashUserStudios = async (id, offset, limit) => {
     offset = getOffset(offset)
     limit = getLimit(limit)
-    const req = await DashFetch(`/users/${id}/studios?offset=${offset}&limit=${limit}`, {
+    const req = await DashFetch(`/users/profiles/${id}/studios?offset=${offset}&limit=${limit}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json'

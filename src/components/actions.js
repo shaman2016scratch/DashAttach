@@ -39,7 +39,7 @@ const actions = {
         follow: async (target) => {
             const imIsLogin = await checkIsLogin()
             if (imIsLogin) {
-                const res = await (await fetch(`https://${DashAttachData.apiUrl}/users/${target}/follow`, {
+                const res = await (await fetch(`https://${DashAttachData.apiUrl}/users/profiles/${target}/follow`, {
                     method: "POST",
                     credentials: "include"
                 })).json()
@@ -52,7 +52,7 @@ const actions = {
         unfollow: async (target) => {
             const imIsLogin = await checkIsLogin()
             if (imIsLogin) {
-                const res = await (await fetch(`https://${DashAttachData.apiUrl}/users/${target}/unfollow`, {
+                const res = await (await fetch(`https://${DashAttachData.apiUrl}/users/profiles/${target}/unfollow`, {
                     method: "POST",
                     credentials: "include"
                 })).json()
