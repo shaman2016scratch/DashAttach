@@ -220,6 +220,14 @@ target.volume
 target.visible
 target.pos // position array ([x,y])
 target.size
+target.direction
+target.layerOrdet
+target.tempo
+target.videoTransparency
+target.videoState
+target.textToSpeechLanguage
+target.draggable
+target.rotationStyle
 ```
 #### Class 'Block'
 ```JavaScript
@@ -410,7 +418,8 @@ new SB3(project) /* Class.
         url: string
     },
     sb3.extensions: array,
-    sb3.extensionURLs: object
+    sb3.extensionURLs: object,
+    sb3.monitors: object
 */
 new Target(project, index) // Class.
 new Stage(project) /* Class {

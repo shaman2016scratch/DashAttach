@@ -55,6 +55,10 @@ class SB3 {
     get extensionURLs () {
         return this.project.extensionURLs
     }
+
+    get monitors () {
+        return this.project.monitors
+    }
 }
 
 class Target {
@@ -162,6 +166,34 @@ class Target {
     get direction () {
         return this.my.direction
     }
+
+    get layerOrder () {
+        return this.my.layerOrder
+    }
+
+    get tempo () {
+        return this.my.tempo
+    }
+
+    get videoTransparency () {
+        return this.my.videoTransparency
+    }
+
+    get videoState () {
+        return this.my.videoState
+    }
+
+    get textToSpeechLanguage () {
+        return this.my.textToSpeechLanguage
+    }
+
+    get draggable () {
+        return this.my.draggable
+    }
+
+    get rotationStyle () {
+        return this.my.rotationStyle
+    }
 }
 
 class Stage {
@@ -221,6 +253,26 @@ class Stage {
 
     get volume () {
         return this.stage.volume
+    }
+
+    get layerOrder () {
+        return this.stage.layerOrder
+    }
+
+    get tempo () {
+        return this.stage.tempo
+    }
+
+    get videoTransparency () {
+        return this.stage.videoTransparency
+    }
+
+    get videoState () {
+        return this.stage.videoState
+    }
+
+    get textToSpeechLanguage () {
+        return this.stage.textToSpeechLanguage
     }
 }
 
