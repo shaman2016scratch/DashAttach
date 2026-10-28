@@ -186,6 +186,14 @@ const info = {
         getStudios: async (project, offset, limit) => {
             const result = await getDashProjectStudios(project, offset, limit)
             return result || []
+        },
+        getComments: async (project, limit) => {
+            const result = await getDashProjectStudios(project, limit)
+            return result.comments || []
+        },
+        getCommentsCount: async (project) => {
+            const result = await getDashProjectStudios(project, 15)
+            return result.total || []
         }
     },
     studios: {

@@ -114,6 +114,8 @@ await DashAttach.info.projects.buffer.dbp(id) // get buffer of project file. Ret
 await DashAttach.info.projects.buffer.trumbnail(id) // get buffer of trumbnail of project. Return: buffer
 await DashAttach.info.projects.getForks(id, offset, limit) // get forks of project. Return: array
 await DashAttach.info.peojects.getStudios(id, offset, limit) // Return: array
+await DashAttach.info.peojects.getComments(id, limit) // Return: array
+await DashAttach.info.peojects.getCommentsCount(id, limit) // Return: number
 ```
 ### Get studio information
 ```JavaScript
@@ -154,6 +156,7 @@ await DashAttach.actions.createStudio(name, description)
 await DashAttach.actions.editProjectDescription(id, description)
 await DashAttach.actions.editProjectName(id, name)
 await DashAttach.actions.editProjectFile(id, file)
+await DashAttach.actions.postCommentToProject(id, content)
 ```
 ### DBP (DashBlocks Project) files
 Note: files .dbp is .zip files

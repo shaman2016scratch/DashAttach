@@ -220,6 +220,19 @@ const getDashUserStudios = async (id, offset, limit) => {
     return res.studios
 }
 
+const getDashProjectComments = async (id, limit) => {
+    limit = getLimit(limit)
+    const req = await DashFetch(`/projects/${id}/comments?limit=${limit}`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        credentials: 'include'
+    })
+    const res = await req.json()
+    return res
+}
+
 export {
     checkIsLogin,
     singinDash,
@@ -242,5 +255,6 @@ export {
     DashFetch,
     editDashProject,
     getDashProjectStudios,
-    getDashUserStudios
+    getDashUserStudios,
+    getDashProjectComments
 }

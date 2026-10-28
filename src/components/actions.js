@@ -1,4 +1,4 @@
-import { getSessionDash, editDashProjectMetadata, checkIsLogin, getDashProject, editDashProject } from "../help/apis.js"
+import { getSessionDash, editDashProjectMetadata, checkIsLogin, getDashProject, editDashProject, DashFetch } from "../help/apis.js"
 import { DashAttachData } from "../help/data.js"
 import FormData from 'form-data';
 
@@ -258,9 +258,9 @@ const actions = {
                 const res = await (await fetch(`https://${DashAttachData.apiUrl}/set-avatar-frame`, {
                     method: "POST",
                     credentials: "include",
-                    body: {
+                    body: JSON.stringify({
                         avatarFrame: id
-                    }
+                    })
                 })).json()
                 return res
             } else {
@@ -274,9 +274,9 @@ const actions = {
                 const res = await (await fetch(`https://${DashAttachData.apiUrl}/studios/${studio}/projects`, {
                     method: "POST",
                     credentials: "include",
-                    body: {
+                    body: JSON.stringify({
                         projectId: id
-                    }
+                    })
                 })).json()
                 return res
             } else {
@@ -290,10 +290,10 @@ const actions = {
                 const res = await (await fetch(`https://${DashAttachData.apiUrl}/studios`, {
                     method: "POST",
                     credentials: "include",
-                    body: {
+                    body: JSON.stringify({
                         name,
                         description
-                    }
+                    })
                 })).json()
                 return res
             } else {
@@ -328,6 +328,25 @@ const actions = {
             if (imIsLogin) {
                 const project = await getDashProject(id)
                 const res = await editDashProject(id, project?.name, project?.description, file)
+                return res
+            } else {
+                console.log("Please, login!")
+                return {}
+            }
+        },
+        postCommentToProject: async (id, content) => {
+            if (imIsLogin) {
+                const req = await DashFetch(`/projects/${id}/comments`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        content
+                    }),
+                    credentials: 'include'
+                })
+                const res = await req.json()
                 return res
             } else {
                 console.log("Please, login!")
