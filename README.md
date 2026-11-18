@@ -89,6 +89,7 @@ await DashAttach.info.users.buffer.avatar(user) // get buffer of avatar of user.
 await DashAttach.info.users.getActions(user, offset, limit) // get actions of user. Return: array
 await DashAttach.info.users.getAvatarFrame(user) // get avatar frame of user. Return: string or null
 await DashAttach.info.users.getStudios(user, offset, limit) // Return: array
+await DashAttach.info.users.getComments(id, limit) // Return: array
 /*
     Argument types:
     id = get info by id
@@ -113,9 +114,8 @@ DashAttach.info.projects.getFileURL(id) // get file url of project. Return: stri
 await DashAttach.info.projects.buffer.dbp(id) // get buffer of project file. Return: buffer
 await DashAttach.info.projects.buffer.trumbnail(id) // get buffer of trumbnail of project. Return: buffer
 await DashAttach.info.projects.getForks(id, offset, limit) // get forks of project. Return: array
-await DashAttach.info.peojects.getStudios(id, offset, limit) // Return: array
-await DashAttach.info.peojects.getComments(id, limit) // Return: array
-await DashAttach.info.peojects.getCommentsCount(id, limit) // Return: number
+await DashAttach.info.projects.getStudios(id, offset, limit) // Return: array
+await DashAttach.info.projects.getComments(id, limit) // Return: array
 ```
 ### Get studio information
 ```JavaScript
@@ -131,6 +131,7 @@ await DashAttach.info.studios.updatedAt(id) // Return: date/string
 await DashAttach.info.studios.trumbnailId(id) // Return: number
 await DashAttach.info.studios.trumbnailURL(id) // Return: string
 await DashAttach.info.studios.stats.projects(id) // Return: number
+await DashAttach.info.studios.getComments(id, limit) // Return: array
 ```
 ### Actions
 ```JavaScript

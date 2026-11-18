@@ -10,7 +10,10 @@ import {
     getDashStudio,
     getDashStudioProjects,
     getDashProjectStudios,
-    getDashUserStudios
+    getDashUserStudios,
+    getDashUserComments,
+    getDashProjectComments,
+    getDashStudioComments
 } from "../help/apis.js"
 import { DashAttachData } from "../help/data.js"
 
@@ -121,7 +124,11 @@ const info = {
         getStudios: async (user, offset, limit) => {
             const result = await getDashUserStudios(user, offset, limit)
             return result || []
-        }
+        },
+        getComments: async (project, limit) => {
+            const result = await getDashUserComments(project, limit)
+            return result.comments || []
+        },
     },
     projects: {
         getName: async (project) => {
@@ -188,12 +195,8 @@ const info = {
             return result || []
         },
         getComments: async (project, limit) => {
-            const result = await getDashProjectStudios(project, limit)
+            const result = await getDashProjectComments(project, limit)
             return result.comments || []
-        },
-        getCommentsCount: async (project) => {
-            const result = await getDashProjectStudios(project, 15)
-            return result.total || []
         }
     },
     studios: {
@@ -240,6 +243,10 @@ const info = {
         getTrumbnailURL: async (studio) => {
             const result = await getDashStudio(studio)
             return `https://${DashAttachData.apiUrl}://studios/trumbnails/${result?.studio?.trumbnailId || 1}`
+        },
+        getComments: async (project, limit) => {
+            const result = await getDashStudioComments(project, limit)
+            return result.comments || []
         },
         stats: {
             projects: async (studio) => {

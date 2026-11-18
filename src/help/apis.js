@@ -233,6 +233,32 @@ const getDashProjectComments = async (id, limit) => {
     return res
 }
 
+const getDashStudioComments = async (id, limit) => {
+    limit = getLimit(limit)
+    const req = await DashFetch(`/studios/${id}/comments?limit=${limit}`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        credentials: 'include'
+    })
+    const res = await req.json()
+    return res
+}
+
+const getDashUserComments = async (id, limit) => {
+    limit = getLimit(limit)
+    const req = await DashFetch(`/users/${id}/comments?limit=${limit}`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        credentials: 'include'
+    })
+    const res = await req.json()
+    return res
+}
+
 export {
     checkIsLogin,
     singinDash,
@@ -256,5 +282,7 @@ export {
     editDashProject,
     getDashProjectStudios,
     getDashUserStudios,
-    getDashProjectComments
+    getDashProjectComments,
+    getDashStudioComments,
+    getDashUserComments
 }
