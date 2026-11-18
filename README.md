@@ -158,6 +158,8 @@ await DashAttach.actions.editProjectDescription(id, description)
 await DashAttach.actions.editProjectName(id, name)
 await DashAttach.actions.editProjectFile(id, file)
 await DashAttach.actions.postCommentToProject(id, content)
+await DashAttach.actions.postCommentToUser(user, content)
+await DashAttach.actions.postCommentToStudio(id, content)
 ```
 ### DBP (DashBlocks Project) files
 Note: files .dbp is .zip files

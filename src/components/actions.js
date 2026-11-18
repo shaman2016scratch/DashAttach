@@ -352,6 +352,44 @@ const actions = {
                 console.log("Please, login!")
                 return {}
             }
+        },
+        postCommentToUserProfile: async (user, content) => {
+            if (imIsLogin) {
+                const req = await DashFetch(`/users/${user}/comments`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        content
+                    }),
+                    credentials: 'include'
+                })
+                const res = await req.json()
+                return res
+            } else {
+                console.log("Please, login!")
+                return {}
+            }
+        },
+        postCommentToStudio: async (id, content) => {
+            if (imIsLogin) {
+                const req = await DashFetch(`/studios/${id}/comments`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        content
+                    }),
+                    credentials: 'include'
+                })
+                const res = await req.json()
+                return res
+            } else {
+                console.log("Please, login!")
+                return {}
+            }
         }
     }
 }
